@@ -1,4 +1,4 @@
-#D&D character creator
+# D&D character creator
 
 This program is used to generate a random character for dungeons & dragons game, written in python
 

@@ -1,4 +1,6 @@
-# This program is used to generate a random character for dungeons & dragons game, written in python
+#D&D character creator
+
+This program is used to generate a random character for dungeons & dragons game, written in python
 
 The project was created in order to speed up character creation process for one-shot style games, where players don't need to invest so much into their characters
 

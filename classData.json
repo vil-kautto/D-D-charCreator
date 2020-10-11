@@ -1,1 +1,64 @@
-{"wizard": {"cantrips": ["Acid Splash", "Chill Touch", "Dancing Lights", "Fire Bolt", "Light", "Mage Hand", "Mending", "Message", "Minor Illusion", "Poison Spray", "Prestidigitation", "Ray of Frost", "Shoking Grasp", "True Strike"], "spells": ["Alarm", "Burning Hands", "Charm Person", "Color Spary", "Comprehend Languages", "Detect Magic", "Disguise Self", "Expeditious Retreat", "False Life", "Feather Fall", "Find Familiar", "Fog Cloud", "Grease", "Identify", "Illusory Script", "Jump", "Longstrider", "Mage armor", "Magic Missile", "Protection from Evil and Good", "Shield", "Silent Image", "Sleep", "Thunderwave", "Unseen Servant"]}}
+{
+    "wizard": {
+        "cantrips": [
+            "Acid Splash",
+            "Chill Touch",
+            "Dancing Lights",
+            "Fire Bolt",
+            "Light",
+            "Mage Hand",
+            "Mending",
+            "Message",
+            "Minor Illusion",
+            "Poison Spray",
+            "Prestidigitation",
+            "Ray of Frost",
+            "Shoking Grasp",
+            "True Strike"
+        ],
+        "spells": [
+            "Alarm",
+            "Burning Hands",
+            "Charm Person",
+            "Color Spary",
+            "Comprehend Languages",
+            "Detect Magic",
+            "Disguise Self",
+            "Expeditious Retreat",
+            "False Life",
+            "Feather Fall",
+            "Find Familiar",
+            "Fog Cloud",
+            "Grease",
+            "Identify",
+            "Illusory Script",
+            "Jump",
+            "Longstrider",
+            "Mage armor",
+            "Magic Missile",
+            "Protection from Evil and Good",
+            "Shield",
+            "Silent Image",
+            "Sleep",
+            "Thunderwave",
+            "Unseen Servant"
+        ],
+        "proficiencies": {
+            "Armor": "None",
+            "Weapons": [
+                "Daggers",
+                "Darts",
+                "Slings",
+                "Quarterstaffs",
+                "Light Crossbows"
+            ],
+            "Skills": "Int/Wis Subskills"
+        },
+        "health": {
+            "hit_die": "1d6",
+            "hp": "1d6 + Constitution modifier",
+            "hp_scale": "1d6 (or 4) + Constitution modifier",
+            "Saving Throws": "Int/Wis"
+        }
+    }
+}

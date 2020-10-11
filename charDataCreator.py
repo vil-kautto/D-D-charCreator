@@ -19,7 +19,7 @@ def addWizardData(classData):
         "Ray of Frost",
         "Shoking Grasp",
         "True Strike",
-        ]
+    ]
     print("{} {}".format(len(cantrips), "cantrips added"))
     classData["cantrips"] = cantrips
     
@@ -55,24 +55,18 @@ def addWizardData(classData):
     
     proficiencies = {
         "Armor": "None",
-        "Weapons": [
-            "Daggers",
-            "Darts",
-            "Slings",
-            "Quarterstaffs",
-            "Light Crossbows"
-        ],
+        "Weapons": "Daggers, Darts, Slings, Quarterstaffs, Light Crossbows",
         "Skills": "Int/Wis Subskills"
     }
     print("{} {}".format(len(proficiencies), "proficiencies added"))
     classData["proficiencies"] = proficiencies
     
     health =  {
-        "hit_die": "1d6",
-        "hp": "1d6 + Constitution modifier",
-        "hp_scale": "1d6 (or 4) + Constitution modifier",
+        "Hit Die": "1d6",
+        "Hit Points": "1d6 + Constitution modifier",
+        "Hit Point Scaling": "1d6 (or 4) + Constitution modifier",
         "Saving Throws": "Int/Wis"
-        }
+    }
     
     print("{} {}".format(len(health), "health items added"))
     classData["health"] = health 
@@ -104,7 +98,7 @@ def addWarlockData(classData):
         "Thunderclap",
         "Toll the Dead",
         "True Strike",
-        ]
+    ]
     print("{} {}".format(len(cantrips), "cantrips added"))
     classData["cantrips"] = cantrips
     

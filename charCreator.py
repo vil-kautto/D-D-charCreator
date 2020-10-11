@@ -24,41 +24,52 @@ def generateStat():
     #print(sum)
     return sum
     
+def getRandomAttr(attr):
+    print("\nAttributes:")
+    for key, value in attr.items():
+        value = generateStat()
+        print(' {}: {}'.format( key, value ))
+    return attr    
 
-def getWizardSpells(wizard):
+
+'''
+Picks spells, cantrips, proficiencies and health stats for wizard class from external data files
+'''
+def getWizard(wizard):
     cantrips = wizard["cantrips"] 
     print("\nCantrips:")
     for i in range(0, 3):
         randomNum = random.randint(0, len(cantrips)-1)
-        print("{}: {}".format(i+1, cantrips[randomNum]))
+        print(" {}: {}".format(i+1, cantrips[randomNum]))
         cantrips.pop(randomNum)
     
     spells = wizard["spells"]
     print("\nSpells:")
     for i in range(0, 6):
         randomNum = random.randint(0, len(spells)-1)
-        print("{}: {}".format(i+1, spells[randomNum]))
+        print(" {}: {}".format(i+1, spells[randomNum]))
         spells.pop(randomNum)
-    
-    
-
-def getRandomAttr(attr):
-    print("\nAttributes:")
-    for key, value in attr.items():
-        value = generateStat()
-        print( '{}: {}'.format( key, value ) )
-    return attr
+        
+    proficiencies = wizard["proficiencies"]
+    print("\nProficiencies:")
+    for key, value in proficiencies.items():
+        print(" {}: {}".format(key, value))
+        
+    health = wizard["health"]
+    print("\nHealth:")
+    for key, value in health.items():
+        print(" {}: {}".format(key, value))
     
     
 # chardata = {'stats':[], 'class':"" ,'skills':[],'items':[]}
 charData = {}
-charData['attributes'] = {
-    'Strength': 0,
-    'Dexterity': 0, 
-    'Constitution': 0,
-    'Intelligence': 0,
-    'Wisdom': 0,
-    'Charisma': 0
+charData["attributes"] = {
+    "Strength": 0,
+    "Dexterity": 0, 
+    "Constitution": 0,
+    "Intelligence": 0,
+    "Wisdom": 0,
+    "Charisma": 0
     }
 
 # Generating, modifying and printing random attributes
@@ -68,7 +79,8 @@ charData['attributes'] = {
 classData = {}
 with open('./classData.json') as file:
   classData = json.load(file)
-classData["wizard"] = getWizardSpells(classData["wizard"])
+  
+classData["wizard"] = getWizard(classData["wizard"])
 
 
 

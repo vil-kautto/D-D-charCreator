@@ -24,11 +24,16 @@ def generateStat():
     #print(sum)
     return sum
     
+def defineModifier(value):
+    return int(value/2-5) 
+    
+    
 def getRandomAttr(attr):
     print("\nAttributes:")
     for key, value in attr.items():
         value = generateStat()
-        print(' {}: {}'.format( key, value ))
+        modifier = defineModifier(value)
+        print(' {}: {}, Modifier: {:+d}'.format( key, value , modifier))
     return attr    
 
 
@@ -73,8 +78,7 @@ charData["attributes"] = {
     }
 
 # Generating, modifying and printing random attributes
-#attr = charData['attributes']
-#charData['attributes'] = getRandomAttr(attr)
+charData['attributes'] = getRandomAttr(charData['attributes'])
 
 classData = {}
 with open('./classData.json') as file:

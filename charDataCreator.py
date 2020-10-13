@@ -2,7 +2,7 @@ import json
 
 
 def addWizardData(classData):
-    print("Adding class data: wizard")
+    print("Adding class data: Wizard")
     
     cantrips = [
         "Acid Splash",
@@ -125,7 +125,7 @@ def addWarlockData(classData):
 
 
 data = {}
-data["wizard"] = {}
+data["Wizard"] = {}
 #data["warlock"] = {}
 #data["wizard"] = {}
 #data["wizard"] = {}
@@ -137,7 +137,7 @@ data["wizard"] = {}
 #data["wizard"] = {}
 #data["wizard"] = {}
 
-data["wizard"] = addWizardData(data["wizard"])
+data["Wizard"] = addWizardData(data["Wizard"])
 #data["warlock"] = addWarlockData(data["warlock"])
 print(data)
 

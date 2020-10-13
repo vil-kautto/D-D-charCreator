@@ -26,8 +26,8 @@ def generateStat():
     
 def defineModifier(value):
     return int(value/2-5) 
-    
-    
+
+
 def getRandomAttr(attr):
     print("\nAttributes:")
     for key, value in attr.items():
@@ -35,6 +35,24 @@ def getRandomAttr(attr):
         modifier = defineModifier(value)
         print(' {}: {}, Modifier: {:+d}'.format( key, value , modifier))
     return attr    
+    
+def getClassName(i):
+    print(i)
+    classes = {
+    1: "Wizard",
+    2: "Wizard",
+    3: "Wizard",
+    4: "Wizard",
+    5: "Wizard",
+    6: "Wizard",
+    7: "Wizard",
+    8: "Wizard",
+    9: "Wizard",
+    10: "Wizard",
+    11: "Wizard",
+    12: "Wizard",
+    }
+    return classes[i]
 
 
 '''
@@ -77,14 +95,23 @@ charData["attributes"] = {
     "Charisma": 0
     }
 
-# Generating, modifying and printing random attributes
-charData['attributes'] = getRandomAttr(charData['attributes'])
-
+# Fetching class data from external file
 classData = {}
 with open('./classData.json') as file:
   classData = json.load(file)
-  
-classData["wizard"] = getWizard(classData["wizard"])
+
+className = getClassName(random.randint(1,12))
+
+print('Class: {}'.format(className))
+
+# Generating, modifying and printing random attributes
+charData['attributes'] = getRandomAttr(charData['attributes'])
+
+
+
+classData["Wizard"] = getWizard(classData["Wizard"])
+
+
 
 
 

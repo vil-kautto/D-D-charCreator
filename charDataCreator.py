@@ -20,7 +20,7 @@ def addWizardData(classData):
         "Shoking Grasp",
         "True Strike",
     ]
-    print("{} {}".format(len(cantrips), "cantrips added"))
+    print("{} {}".format(len(cantrips), "cantrip entries added"))
     classData["cantrips"] = cantrips
     
     spells = [
@@ -50,15 +50,16 @@ def addWizardData(classData):
         "Thunderwave",
         "Unseen Servant",
     ]
-    print("{} {}".format(len(spells), "spells added"))
+    print("{} {}".format(len(spells), "spell entries added"))
     classData["spells"] = spells
     
     proficiencies = {
         "Armor": "None",
         "Weapons": "Daggers, Darts, Slings, Quarterstaffs, Light Crossbows",
-        "Skills": "Int/Wis Subskills"
+        "Tools": "None",
+        "Skills (2)": "Arcane, History, Investigation, Medicine, Religion"
     }
-    print("{} {}".format(len(proficiencies), "proficiencies added"))
+    print("{} {}".format(len(proficiencies), "proficiency entries added"))
     classData["proficiencies"] = proficiencies
     
     health =  {
@@ -67,15 +68,14 @@ def addWizardData(classData):
         "Hit Point Scaling": "1d6 (or 4) + Constitution modifier",
         "Saving Throws": "Int/Wis"
     }
-    
-    print("{} {}".format(len(health), "health items added"))
+    print("{} {}".format(len(health), "health entries added"))
     classData["health"] = health 
     
     return classData
 
 
 def addWarlockData(classData):
-    print("Adding class data: warlock")
+    print("Adding class data: Warlock")
     
     cantrips = [
         "Blade Ward",
@@ -121,6 +121,24 @@ def addWarlockData(classData):
     print("{} {}".format(len(spells), "spells added"))
     classData["spells"] = spells
     
+    proficiencies = {
+        "Armor": "Light armor",
+        "Weapons": "Simple weapons and light crossbows",
+        "Tools": "None",
+        "Skills (2)": "Archana, Deception, History, Intimidation, Investigation, Nature, Religion"
+    }
+    print("{} {}".format(len(proficiencies), "proficiency entries added"))
+    classData["proficiencies"] = proficiencies
+    
+    health =  {
+        "Hit Die": "1d8",
+        "Hit Points": "1d8 + Constitution modifier",
+        "Hit Point Scaling": "1d8 (or 5) + Constitution modifier",
+        "Saving Throws": "Wis/Cha"
+    }
+    print("{} {}".format(len(health), "health entries added"))
+    classData["health"] = health 
+    
     return classData
 
 
@@ -138,7 +156,7 @@ data["Wizard"] = {}
 #data["wizard"] = {}
 
 data["Wizard"] = addWizardData(data["Wizard"])
-#data["warlock"] = addWarlockData(data["warlock"])
+#data["Warlock"] = addWarlockData(data["Warlock"])
 print(data)
 
 with open('classData.json', 'w') as outfile:

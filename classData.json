@@ -46,7 +46,8 @@
         "proficiencies": {
             "Armor": "None",
             "Weapons": "Daggers, Darts, Slings, Quarterstaffs, Light Crossbows",
-            "Skills": "Int/Wis Subskills"
+            "Tools": "None",
+            "Skills (2)": "Arcane, History, Investigation, Medicine, Religion"
         },
         "health": {
             "Hit Die": "1d6",

@@ -1,6 +1,7 @@
 import random
 import json
 from collections import defaultdict
+#from './' import charFuncs
 
 '''
 Generates stats based on following model: 4d6 - smallestRoll
@@ -39,18 +40,18 @@ def getRandomAttr(attr):
 def getClassName(i):
     print(i)
     classes = {
-    1: "Wizard",
-    2: "Wizard",
-    3: "Wizard",
-    4: "Wizard",
-    5: "Wizard",
-    6: "Wizard",
-    7: "Wizard",
-    8: "Wizard",
-    9: "Wizard",
-    10: "Wizard",
-    11: "Wizard",
-    12: "Wizard",
+        1: "Wizard",
+        2: "Wizard",
+        3: "Wizard",
+        4: "Wizard",
+        5: "Wizard",
+        6: "Wizard",
+        7: "Wizard",
+        8: "Wizard",
+        9: "Wizard",
+        10: "Wizard",
+        11: "Wizard",
+        12: "Wizard",
     }
     return classes[i]
 
@@ -84,7 +85,7 @@ def getWizard(wizard):
         print(" {}: {}".format(key, value))
     
     
-# chardata = {'stats':[], 'class':"" ,'skills':[],'items':[]}
+# chardata contains all character related data
 charData = {}
 charData["attributes"] = {
     "Strength": 0,
@@ -107,9 +108,7 @@ print('Class: {}'.format(className))
 # Generating, modifying and printing random attributes
 charData['attributes'] = getRandomAttr(charData['attributes'])
 
-
-
-classData["Wizard"] = getWizard(classData["Wizard"])
+classData[className] = getWizard(classData[className])
 
 
 

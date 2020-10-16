@@ -62,6 +62,15 @@ def addWizardData(classData):
     print("{} {}".format(len(proficiencies), "proficiency entries added"))
     classData["proficiencies"] = proficiencies
     
+    equipment =  {
+        "Weapons": ["Quarterstaff", "Dagger"],
+        "Pouches": ["Component Pouch", "Arcane Focus"],
+        "Bags": ["Scholar's bag", "Explorer's bag"],
+        "Spellbook": "Spellbook"
+    }
+    print("{} {}".format(len(equipment), "equipment entries added"))
+    classData["equipment"] = equipment
+    
     health =  {
         "Hit Die": "1d6",
         "Hit Points": "1d6 + Constitution modifier",
@@ -70,6 +79,8 @@ def addWizardData(classData):
     }
     print("{} {}".format(len(health), "health entries added"))
     classData["health"] = health 
+    
+    
     
     return classData
 

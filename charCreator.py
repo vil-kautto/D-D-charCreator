@@ -44,7 +44,7 @@ def get_class_name(i):
     classes = {
         1:  "barbarian",
         2:  "wizard",
-        3:  "wizard",
+        3:  "cleric",
         4:  "wizard",
         5:  "wizard",
         6:  "wizard",
@@ -61,6 +61,8 @@ def get_class_name(i):
 '''
 Picks spells, cantrips, proficiencies and health stats for wizard class from external data files
 '''
+
+
 def get_character(character):
     if character["type"] == "spellcaster" :
         cantrips = character["cantrips"] 

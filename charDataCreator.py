@@ -16,9 +16,6 @@ def add_barbarian_data(class_data):
     }
     print("{} {}".format(len(proficiencies), "proficiency entries added"))
     class_data["proficiencies"] = proficiencies
-
-    class_data["cantrips"] = ["none"]
-    class_data["spells"] = ["none"]
     
     # class start equipment
     equipment =  {
@@ -56,6 +53,7 @@ def add_barbarian_data(class_data):
 def add_bard_data(class_data):
     print("Adding class data: Bard")
     class_data["type"] = "spellcaster"
+    class_data["spell_details"] = [2, 4, 2]
 
     # Class cantrips
     cantrips = [
@@ -150,6 +148,7 @@ def add_bard_data(class_data):
 def add_cleric_data(class_data):
     print("Adding class data: cleric")
     class_data["type"] = "spellcaster"
+    class_data["spell_details"] = [3, 0, 2]
 
     # Class start equipment
     cantrips = [
@@ -231,6 +230,7 @@ def add_cleric_data(class_data):
 def add_wizard_data(class_data):
     print("Adding class data: Wizard")
     class_data["type"] = "spellcaster"
+    class_data["spell_details"] = [3, 6, 2]
     
     # Class cantrips
     cantrips = [
@@ -328,6 +328,7 @@ def add_wizard_data(class_data):
 def add_warlock_data(class_data):
     print("Adding class data: Warlock")
     class_data["type"] = "spellcaster"
+    class_data["spell_details"] = [2, 2, 1]
     
     cantrips = [
         "Blade Ward",

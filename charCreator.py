@@ -50,7 +50,7 @@ def get_class_name(i):
         6:  "monk",
         7:  "paladin",
         8:  "ranger",
-        9:  "wizard",
+        9:  "rogue",
         10: "wizard",
         11: "warlock",
         12: "wizard"

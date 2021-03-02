@@ -515,6 +515,54 @@ def add_ranger_data(class_data):
     return class_data
 
 
+# Rogue class Data
+def add_rogue_data(class_data):
+    class_data["type"] = "warrior"
+    print("Adding class data: Ranger")
+
+    # Class proficiencies
+    proficiencies = {
+        "Armour": "Light Armour",
+        "Weapons": "Simple weapons, Hand crossbows, Longswords, Rapiers, Shortswords",
+        "Tools": "Thieve's tools",
+        "Skills (4)": "Acrobatics, Athletics, Deception, Insight, Intimidation, Investigation,\n"
+                      " Perception, Performance, Persuasion, Sleight of Hand, and Stealth"
+    }
+    print("{} {}".format(len(proficiencies), "proficiency entries added"))
+    class_data["proficiencies"] = proficiencies
+
+    # Class start equipment
+    equipment = {
+        "Primary": ["Rapier", "Shortsword"],
+        "Secondary": ["Shortbow & quiver with 20 arrows", "Shortsword"],
+        "Tertiary": ["Leather Armour, Two Daggers & thieves' tools"],
+        "Bags": ["Explorer's pack", "Dungeoneer's pack", "Burglar's pack"]
+    }
+    print("{} {}".format(len(equipment), "equipment entries added"))
+    class_data["equipment"] = equipment
+
+    # Class Features
+    features = [
+        "Expertize",
+        "Sneak Attack",
+        "Thieves' Cant"
+    ]
+    print("{} {}".format(len(features), "features added"))
+    class_data["features"] = features
+
+    # Class health data
+    health = {
+        "Hit Die": "1d8",
+        "Hit Points": "1d8 + Constitution modifier",
+        "Hit Point Scaling": "1d10 (or 5) + Constitution modifier",
+        "Saving Throws": "Dex/Int"
+    }
+    print("{} {}".format(len(health), "health entries added"))
+    class_data["health"] = health
+
+    return class_data
+
+
 # Wizard class data
 def add_wizard_data(class_data):
     print("Adding class data: Wizard")
@@ -712,7 +760,7 @@ data["fighter"] = {}
 data["monk"] = {}
 data["paladin"] = {}
 data["ranger"] = {}
-#data["rogue"] = {}
+data["rogue"] = {}
 #data["sorcerer"] = {}
 data["wizard"] = {}
 data["warlock"] = {}
@@ -725,7 +773,7 @@ data["fighter"] = add_fighter_data(data["fighter"])
 data["monk"] = add_monk_data(data["monk"])
 data["paladin"] = add_paladin_data(data["paladin"])
 data["ranger"] = add_ranger_data(data["ranger"])
-#data["rogue"] = add_rogue_data(data["rogue"])
+data["rogue"] = add_rogue_data(data["rogue"])
 #data["sorcerer"] = add_sorcerer_data(data["sorcerer"])
 data["wizard"] = add_wizard_data(data["wizard"])
 data["warlock"] = add_warlock_data(data["warlock"])

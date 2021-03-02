@@ -18,8 +18,8 @@ def add_barbarian_data(class_data):
     print("{} {}".format(len(proficiencies), "proficiency entries added"))
     class_data["proficiencies"] = proficiencies
     
-    # class start equipment
-    equipment =  {
+    # Class start equipment
+    equipment = {
         "Primary": ["Greataxe", "Any martial weapon"],
         "Secondary": ["Component Pouch", "Arcane Focus"],
         "Tertiary": [],
@@ -37,8 +37,8 @@ def add_barbarian_data(class_data):
     print("{} {}".format(len(features), "features added"))
     class_data["features"] = features
     
-	# class health data
-    health =  {
+    # Class health data
+    health = {
         "Hit Die": "1d12",
         "Hit Points": "1d12 + Constitution modifier",
         "Hit Point Scaling": "1d12 (or 7) + Constitution modifier",
@@ -74,7 +74,7 @@ def add_bard_data(class_data):
     print("{} {}".format(len(cantrips), "cantrip entries added"))
     class_data["cantrips"] = cantrips
 
-    # Class spells
+    # Class 1st level spells
     spells = [
         "Animal Friendship",
         "Bane",
@@ -151,7 +151,7 @@ def add_cleric_data(class_data):
     class_data["type"] = "spellcaster"
     class_data["spell_details"] = [3, 0, 2]
 
-    # Class start equipment
+    # Class cantrips
     cantrips = [
         "Guidance",
         "Light",
@@ -166,6 +166,7 @@ def add_cleric_data(class_data):
     print("{} {}".format(len(cantrips), "cantrips added"))
     class_data["cantrips"] = cantrips
 
+    # Class 1st level spells
     spells = [
         "Bane",
         "Bless",
@@ -215,6 +216,7 @@ def add_cleric_data(class_data):
     print("{} {}".format(len(features), "features added"))
     class_data["features"] = features
 
+    # Class health data
     health = {
         "Hit Die": "1d8",
         "Hit Points": "1d8 + Constitution modifier",
@@ -233,6 +235,7 @@ def add_druid_data(class_data):
     class_data["type"] = "spellcaster"
     class_data["spell_details"] = [2, 0, 2]
 
+    # Class cantrips
     cantrips = [
         "Control Flames",
         "Create Bonfire",
@@ -259,6 +262,7 @@ def add_druid_data(class_data):
     print("{} {}".format(len(cantrips), "cantrips added"))
     class_data["cantrips"] = cantrips
 
+    # Class 1st level spells
     spells = [
         "Absorb Elements",
         "Animal Friendship",
@@ -284,6 +288,7 @@ def add_druid_data(class_data):
     print("{} {}".format(len(spells), "spells added"))
     class_data["spells"] = spells
 
+    # Class proficiencies
     proficiencies = {
         "Armor": "Light Armour, Medium Armour, Shields (Cannot wear metal)",
         "Weapons": "Clubs, Daggers, Darts, Javelins, Maces, Quarterstaves, Scimitars, Sickles, Slings, Spears",
@@ -293,7 +298,7 @@ def add_druid_data(class_data):
     print("{} {}".format(len(proficiencies), "proficiency entries added"))
     class_data["proficiencies"] = proficiencies
 
-    # class start equipment
+    # Class start equipment
     equipment = {
         "Primary": ["Wooden Shield", "Any simple weapon"],
         "Secondary": ["Scimitar", "Simple melee weapon"],
@@ -311,6 +316,7 @@ def add_druid_data(class_data):
     print("{} {}".format(len(features), "features added"))
     class_data["features"] = features
 
+    # Class health data
     health = {
         "Hit Die": "1d8",
         "Hit Points": "1d8 + Constitution modifier",
@@ -338,7 +344,7 @@ def add_fighter_data(class_data):
     print("{} {}".format(len(proficiencies), "proficiency entries added"))
     class_data["proficiencies"] = proficiencies
 
-    # class start equipment
+    # Class start equipment
     equipment = {
         "Primary": ["Chain mail", "Any martial weapon"],
         "Secondary": ["Martial Weapon & shield", "2 Martial Weapons"],
@@ -357,7 +363,7 @@ def add_fighter_data(class_data):
     print("{} {}".format(len(features), "features added"))
     class_data["features"] = features
 
-    # class health data
+    # Class health data
     health = {
         "Hit Die": "1d10",
         "Hit Points": "1d10 + Constitution modifier",
@@ -385,7 +391,7 @@ def add_monk_data(class_data):
     print("{} {}".format(len(proficiencies), "proficiency entries added"))
     class_data["proficiencies"] = proficiencies
 
-    # class start equipment
+    # Class start equipment
     equipment = {
         "Primary": ["Shortsword", "Any Simple Weapon"],
         "Secondary": ["10 Darts"],
@@ -404,12 +410,58 @@ def add_monk_data(class_data):
     print("{} {}".format(len(features), "features added"))
     class_data["features"] = features
 
-    # class health data
+    # Class health data
     health = {
         "Hit Die": "1d8",
         "Hit Points": "1d8 + Constitution modifier",
         "Hit Point Scaling": "1d8 (or 5) + Constitution modifier",
         "Saving Throws": "Str/Dex"
+    }
+    print("{} {}".format(len(health), "health entries added"))
+    class_data["health"] = health
+
+    return class_data
+
+
+# Cleric class Data
+def add_paladin_data(class_data):
+    print("Adding class data: Paladin")
+    class_data["type"] = "warrior"
+
+    # Class start equipment
+    proficiencies = {
+        "Armor": "All armour, Shields",
+        "Weapons": "Simple weapons, Martial Weapons",
+        "Tools": "None",
+        "Skills (2)": "Athletics, Insight, Intimidation, Medicine, Persuasion, Religion"
+    }
+    print("{} {}".format(len(proficiencies), "proficiency entries added"))
+    class_data["proficiencies"] = proficiencies
+
+    # Class start equipment
+    equipment = {
+        "Primary": ["Martial Weapon & Shield", "Two Martial Weapons"],
+        "Secondary": ["5 javelins", "Simple Melee Weapon"],
+        "Tertiary": ["Chain Mail & holy symbol"],
+        "Bags": ["Priest's pack", "Explorer's pack"]
+    }
+    print("{} {}".format(len(equipment), "equipment entries added"))
+    class_data["equipment"] = equipment
+
+    # Class features
+    features = [
+        "Divine Sense",
+        "Lay on Hands"
+    ]
+    print("{} {}".format(len(features), "features added"))
+    class_data["features"] = features
+
+    # Class health data
+    health = {
+        "Hit Die": "1d10",
+        "Hit Points": "1d10 + Constitution modifier",
+        "Hit Point Scaling": "1d10 (or 6) + Constitution modifier",
+        "Saving Throws": "Wis/Cha"
     }
     print("{} {}".format(len(health), "health entries added"))
     class_data["health"] = health
@@ -443,7 +495,7 @@ def add_wizard_data(class_data):
     print("{} {}".format(len(cantrips), "cantrip entries added"))
     class_data["cantrips"] = cantrips
     
-    # Class spells
+    # Class 1st level spells
     spells = [
         "Alarm",
         "Burning Hands",
@@ -474,7 +526,7 @@ def add_wizard_data(class_data):
     print("{} {}".format(len(spells), "spell entries added"))
     class_data["spells"] = spells
     
-    # class proficiencies
+    # Class proficiencies
     proficiencies = {
         "Armour": "None",
         "Weapons": "Daggers, Darts, Slings, Quarterstaffs, Light Crossbows",
@@ -484,8 +536,8 @@ def add_wizard_data(class_data):
     print("{} {}".format(len(proficiencies), "proficiency entries added"))
     class_data["proficiencies"] = proficiencies
     
-    # class start equipment
-    equipment =  {
+    # Class start equipment
+    equipment = {
         "Primary": ["Quarterstaff", "Dagger"],
         "Secondary": ["Component Pouch", "Arcane Focus"],
         "Tertiary": ["Spellbook"],
@@ -503,7 +555,7 @@ def add_wizard_data(class_data):
     class_data["features"] = features
 
     # Class health data
-    health =  {
+    health = {
         "Hit Die": "1d6",
         "Hit Points": "1d6 + Constitution modifier",
         "Hit Point Scaling": "1d6 (or 4) + Constitution modifier",
@@ -612,7 +664,7 @@ data["cleric"] = {}
 data["druid"] = {}
 data["fighter"] = {}
 data["monk"] = {}
-#data["paladin"] = {}
+data["paladin"] = {}
 #data["ranger"] = {}
 #data["rogue"] = {}
 #data["sorcerer"] = {}
@@ -625,7 +677,7 @@ data["cleric"] = add_cleric_data(data["cleric"])
 data["druid"] = add_druid_data(data["druid"])
 data["fighter"] = add_fighter_data(data["fighter"])
 data["monk"] = add_monk_data(data["monk"])
-#data["paladin"] = add_paladin_data(data["paladin"])
+data["paladin"] = add_paladin_data(data["paladin"])
 #data["ranger"] = add_ranger_data(data["ranger"])
 #data["rogue"] = add_rogue_data(data["rogue"])
 #data["sorcerer"] = add_sorcerer_data(data["sorcerer"])

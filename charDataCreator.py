@@ -49,7 +49,7 @@ def add_barbarian_data(class_data):
     return class_data
 
 
-# bard class data
+# Bard class data
 def add_bard_data(class_data):
     print("Adding class data: Bard")
     class_data["type"] = "spellcaster"
@@ -219,6 +219,102 @@ def add_cleric_data(class_data):
         "Hit Points": "1d8 + Constitution modifier",
         "Hit Point Scaling": "1d8 (or 5) + Constitution modifier",
         "Saving Throws": "Wis/Cha"
+    }
+    print("{} {}".format(len(health), "health entries added"))
+    class_data["health"] = health
+
+    return class_data
+
+
+# Druid class Data
+def add_druid_data(class_data):
+    print("Adding class data: Druid")
+    class_data["type"] = "spellcaster"
+    class_data["spell_details"] = [2, 0, 2]
+
+    cantrips = [
+        "Control Flames",
+        "Create Bonfire",
+        "Druidcraft",
+        "Frostbite",
+        "Guidance",
+        "Infestation",
+        "Gust",
+        "Lightning Lure",
+        "Magic Stone",
+        "Mending",
+        "Mold Earth",
+        "Poison Spray",
+        "Primal Savagery",
+        "Produce Flame",
+        "Resistance",
+        "Shape Water",
+        "Shillelagh",
+        "Thorn Whip",
+        "Thunderclap",
+        "Toll the Dead",
+        "True Strike",
+    ]
+    print("{} {}".format(len(cantrips), "cantrips added"))
+    class_data["cantrips"] = cantrips
+
+    spells = [
+        "Absorb Elements",
+        "Animal Friendship",
+        "Beast Bond",
+        "Charm Person",
+        "Create/Destroy Water",
+        "Cure Wounds",
+        "Detect Magic",
+        "Detect Poison & Disease",
+        "Earth Tremor",
+        "Entangle",
+        "Faerie Fire",
+        "Fog Cloud",
+        "Goodberry",
+        "Healing Word",
+        "Ice Knife",
+        "Jump",
+        "Purify Food & Drink",
+        "Snare",
+        "Speak with Animals",
+        "Thunderwave"
+    ]
+    print("{} {}".format(len(spells), "spells added"))
+    class_data["spells"] = spells
+
+    proficiencies = {
+        "Armor": "Light Armour, Medium Armour, Shields (Cannot wear metal)",
+        "Weapons": "Clubs, Daggers, Darts, Javelins, Maces, Quarterstaves, Scimitars, Sickles, Slings, Spears",
+        "Tools": "Herbalism kit",
+        "Skills (2)": "Arcana, Animal Handling, Insight, Medicine, Nature, Perception, Religion, Survival"
+    }
+    print("{} {}".format(len(proficiencies), "proficiency entries added"))
+    class_data["proficiencies"] = proficiencies
+
+    # class start equipment
+    equipment = {
+        "Primary": ["Wooden Shield", "Any simple weapon"],
+        "Secondary": ["Scimitar", "Simple melee weapon"],
+        "Tertiary": ["Leather Armour & Druidic Focus"],
+        "Bags": ["Explorer's pack"]
+    }
+    print("{} {}".format(len(equipment), "equipment entries added"))
+    class_data["equipment"] = equipment
+
+    # Class features
+    features = [
+        "Druidic",
+        "Spellcasting"
+    ]
+    print("{} {}".format(len(features), "features added"))
+    class_data["features"] = features
+
+    health = {
+        "Hit Die": "1d8",
+        "Hit Points": "1d8 + Constitution modifier",
+        "Hit Point Scaling": "1d8 (or 5) + Constitution modifier",
+        "Saving Throws": "Int/Wis"
     }
     print("{} {}".format(len(health), "health entries added"))
     class_data["health"] = health
@@ -418,7 +514,7 @@ data = {}
 data["barbarian"] = {}
 data["bard"] = {}
 data["cleric"] = {}
-#data["druid"] = {}
+data["druid"] = {}
 #data["fighter"] = {}
 #data["monk"] = {}
 #data["paladin"] = {}
@@ -431,7 +527,7 @@ data["warlock"] = {}
 data["barbarian"] = add_barbarian_data(data["barbarian"])
 data["bard"] = add_bard_data(data["bard"])
 data["cleric"] = add_cleric_data(data["cleric"])
-#data["druid"] = add_druid_data(data["druid"])
+data["druid"] = add_druid_data(data["druid"])
 #data["fighter"] = add_fighter_data(data["fighter"])
 #data["monk"] = add_monk_data(data["monk"])
 #data["paladin"] = add_paladin_data(data["paladin"])

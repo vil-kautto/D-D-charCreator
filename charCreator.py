@@ -43,7 +43,7 @@ def get_class_name(i):
     print(i)
     classes = {
         1:  "barbarian",
-        2:  "wizard",
+        2:  "bard",
         3:  "cleric",
         4:  "wizard",
         5:  "wizard",

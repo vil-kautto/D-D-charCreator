@@ -49,11 +49,11 @@ def get_class_name(i):
         5:  "fighter",
         6:  "monk",
         7:  "paladin",
-        8:  "wizard",
+        8:  "ranger",
         9:  "wizard",
         10: "wizard",
         11: "warlock",
-        12: "wizard",
+        12: "wizard"
     }
     return classes[i]
 
@@ -109,7 +109,7 @@ while repeat:
         class_data = json.load(file)
     if repeat:
         className = get_class_name(random.randint(1, 12))
-        print('Class: {}'.format(className))
+        print('Class: {}'.format(className.capitalize()))
 
         # Generating, modifying and printing random attributes
         char_data['attributes'] = get_random_attr(char_data['attributes'])

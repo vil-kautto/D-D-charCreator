@@ -97,7 +97,6 @@ def add_bard_data(class_data):
         "Silent Image",
         "Sleep",
         "Speak with Animals",
-        "Tasha's hideous Laughter",
         "Thunderwave",
         "Unseen Servant",
     ]
@@ -109,7 +108,7 @@ def add_bard_data(class_data):
         "Armor": "Light Armour",
         "Weapons": "Simple weapons, hand crossbows, longswords, rapiers, shortswords",
         "Tools": "3 Musical instruments of your choice",
-        "Skills": "Pick 3"
+        "Skills": "Select 3 minor skills"
     }
     print("{} {}".format(len(proficiencies), "proficiency entries added"))
     class_data["proficiencies"] = proficiencies
@@ -563,6 +562,121 @@ def add_rogue_data(class_data):
     return class_data
 
 
+# Sorcerer class data
+def add_sorcerer_data(class_data):
+    print("Adding class data: Wizard")
+    class_data["type"] = "spellcaster"
+    class_data["spell_details"] = [4, 2, 2]
+
+    # Class cantrips
+    cantrips = [
+        "Acid Splash",
+        "Blade Ward",
+        "Booming Blade",
+        "Chill Touch",
+        "Control Flames",
+        "Create Bonfire",
+        "Dancing Lights",
+        "Fire Bolt",
+        "Friends",
+        "Frostbite",
+        "Green-flame Blade",
+        "Gust",
+        "Infestation",
+        "Light",
+        "Lightning Lure",
+        "Mage Hand",
+        "Mending",
+        "Message",
+        "Mind Sliver",
+        "Minor Illusion",
+        "Mold Earth",
+        "Poison Spray",
+        "Prestidigitation",
+        "Ray of Frost",
+        "Shape Water",
+        "Shoking Grasp",
+        "Sword Burst",
+        "Thunderclap",
+        "True Strike",
+    ]
+    print("{} {}".format(len(cantrips), "cantrip entries added"))
+    class_data["cantrips"] = cantrips
+
+    # Class 1st level spells
+    spells = [
+        "Absorb Elements",
+        "Burning Hands",
+        "Charm Person",
+        "Catapult",
+        "Chaos Bolt",
+        "Charm Person",
+        "Chromatic Orb"
+        "Color Spray",
+        "Comprehend Languages",
+        "Detect Magic",
+        "Disguise Self",
+        "Distort Value",
+        "Earth Tremor",
+        "Expeditious Retreat",
+        "False Life",
+        "Feather Fall",
+        "Fog Cloud",
+        "Ice Knife",
+        "Jump",
+        "Mage Armour",
+        "Magic Missile",
+        "Ray of Sickness",
+        "Shield",
+        "Silent Image",
+        "Sleep",
+        "Thunderwave",
+        "Witch Bolt",
+    ]
+    print("{} {}".format(len(spells), "spell entries added"))
+    class_data["spells"] = spells
+
+    # Class proficiencies
+    proficiencies = {
+        "Armour": "None",
+        "Weapons": "Daggers, Darts, Slings, Quarterstaves, Light Crossbows",
+        "Tools": "None",
+        "Skills (2)": "Arcane, Deception, Insight, Intimidation, Persuasion, Religion"
+    }
+    print("{} {}".format(len(proficiencies), "proficiency entries added"))
+    class_data["proficiencies"] = proficiencies
+
+    # Class start equipment
+    equipment = {
+        "Primary": ["Light Crossbow & 20 bolts", "Simple Weapon"],
+        "Secondary": ["Component Pouch", "Arcane Focus"],
+        "Tertiary": ["Two Daggers"],
+        "Bags": ["Dungeoneer's bag", "Explorer's bag"]
+    }
+    print("{} {}".format(len(equipment), "equipment entries added"))
+    class_data["equipment"] = equipment
+
+    # Class Features
+    features = [
+        "Spellcasting",
+        "Sorcerous Origin"
+    ]
+    print("{} {}".format(len(features), "features added"))
+    class_data["features"] = features
+
+    # Class health data
+    health = {
+        "Hit Die": "1d6",
+        "Hit Points": "1d6 + Constitution modifier",
+        "Hit Point Scaling": "1d6 (or 4) + Constitution modifier",
+        "Saving Throws": "Const/Cha"
+    }
+    print("{} {}".format(len(health), "health entries added"))
+    class_data["health"] = health
+
+    return class_data
+
+
 # Wizard class data
 def add_wizard_data(class_data):
     print("Adding class data: Wizard")
@@ -761,7 +875,7 @@ data["monk"] = {}
 data["paladin"] = {}
 data["ranger"] = {}
 data["rogue"] = {}
-#data["sorcerer"] = {}
+data["sorcerer"] = {}
 data["wizard"] = {}
 data["warlock"] = {}
 
@@ -774,7 +888,7 @@ data["monk"] = add_monk_data(data["monk"])
 data["paladin"] = add_paladin_data(data["paladin"])
 data["ranger"] = add_ranger_data(data["ranger"])
 data["rogue"] = add_rogue_data(data["rogue"])
-#data["sorcerer"] = add_sorcerer_data(data["sorcerer"])
+data["sorcerer"] = add_sorcerer_data(data["sorcerer"])
 data["wizard"] = add_wizard_data(data["wizard"])
 data["warlock"] = add_warlock_data(data["warlock"])
 print(data)

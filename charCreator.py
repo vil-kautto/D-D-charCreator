@@ -46,7 +46,7 @@ def get_class_name(i):
         2:  "bard",
         3:  "cleric",
         4:  "druid",
-        5:  "wizard",
+        5:  "fighter",
         6:  "wizard",
         7:  "wizard",
         8:  "wizard",

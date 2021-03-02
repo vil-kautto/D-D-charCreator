@@ -2,6 +2,7 @@ import json
 
 # Simply defines class features based on available data and translates it into json format
 
+
 # Barbarian class Data
 def add_barbarian_data(class_data):
     class_data["type"] = "warrior"
@@ -188,7 +189,7 @@ def add_cleric_data(class_data):
 
     # Class start equipment
     proficiencies = {
-        "Armor": "Light armor, medium armor, shields",
+        "Armor": "Light armour, medium armour, shields",
         "Weapons": "Simple weapons",
         "Tools": "None",
         "Skills (2)": "History, Insight, Medicine, Persuasion, Religion"
@@ -322,6 +323,53 @@ def add_druid_data(class_data):
     return class_data
 
 
+# Fighter class Data
+def add_fighter_data(class_data):
+    class_data["type"] = "warrior"
+    print("Adding class data: Fighter")
+
+    # Class proficiencies
+    proficiencies = {
+        "Armour": "All armour, shields",
+        "Weapons": "Simple weapons, Martial weapons",
+        "Tools": "None",
+        "Skills (2)": "Acrobatics, Animal Handling, Athletics, History, Insight, Intimidation, Perception, Survival"
+    }
+    print("{} {}".format(len(proficiencies), "proficiency entries added"))
+    class_data["proficiencies"] = proficiencies
+
+    # class start equipment
+    equipment = {
+        "Primary": ["Chain mail", "Any martial weapon"],
+        "Secondary": ["Martial Weapon & shield", "2 Martial Weapons"],
+        "Tertiary": ["Light crossbow & 20 bolts", "2 Handaxes"],
+        "Bags": ["Explorer's pack", "Dungeoneer's pack"]
+
+    }
+    print("{} {}".format(len(equipment), "equipment entries added"))
+    class_data["equipment"] = equipment
+
+    # Class Features
+    features = [
+        "Fighting Style",
+        "Second Wind"
+    ]
+    print("{} {}".format(len(features), "features added"))
+    class_data["features"] = features
+
+    # class health data
+    health = {
+        "Hit Die": "1d10",
+        "Hit Points": "1d10 + Constitution modifier",
+        "Hit Point Scaling": "1d10 (or 6) + Constitution modifier",
+        "Saving Throws": "Str/Const"
+    }
+    print("{} {}".format(len(health), "health entries added"))
+    class_data["health"] = health
+
+    return class_data
+
+
 # Wizard class data
 def add_wizard_data(class_data):
     print("Adding class data: Wizard")
@@ -367,7 +415,7 @@ def add_wizard_data(class_data):
         "Illusory Script",
         "Jump",
         "Longstrider",
-        "Mage armor",
+        "Mage armour",
         "Magic Missile",
         "Protection from Evil and Good",
         "Shield",
@@ -381,7 +429,7 @@ def add_wizard_data(class_data):
     
     # class proficiencies
     proficiencies = {
-        "Armor": "None",
+        "Armour": "None",
         "Weapons": "Daggers, Darts, Slings, Quarterstaffs, Light Crossbows",
         "Tools": "None",
         "Skills (2)": "Arcane, History, Investigation, Medicine, Religion"
@@ -471,10 +519,10 @@ def add_warlock_data(class_data):
     class_data["spells"] = spells
     
     proficiencies = {
-        "Armor": "Light armor",
+        "Armour": "Light armour",
         "Weapons": "Simple weapons and light crossbows",
         "Tools": "None",
-        "Skills (2)": "Archana, Deception, History, Intimidation, Investigation, Nature, Religion"
+        "Skills (2)": "Arcana, Deception, History, Intimidation, Investigation, Nature, Religion"
     }
     print("{} {}".format(len(proficiencies), "proficiency entries added"))
     class_data["proficiencies"] = proficiencies
@@ -515,7 +563,7 @@ data["barbarian"] = {}
 data["bard"] = {}
 data["cleric"] = {}
 data["druid"] = {}
-#data["fighter"] = {}
+data["fighter"] = {}
 #data["monk"] = {}
 #data["paladin"] = {}
 #data["ranger"] = {}
@@ -528,7 +576,7 @@ data["barbarian"] = add_barbarian_data(data["barbarian"])
 data["bard"] = add_bard_data(data["bard"])
 data["cleric"] = add_cleric_data(data["cleric"])
 data["druid"] = add_druid_data(data["druid"])
-#data["fighter"] = add_fighter_data(data["fighter"])
+data["fighter"] = add_fighter_data(data["fighter"])
 #data["monk"] = add_monk_data(data["monk"])
 #data["paladin"] = add_paladin_data(data["paladin"])
 #data["ranger"] = add_ranger_data(data["ranger"])

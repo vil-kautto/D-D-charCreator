@@ -40,7 +40,7 @@ def get_random_attr(attr):
 
 
 def get_class_name(i):
-    print(i)
+    # print(i)
     classes = {
         1:  "barbarian",
         2:  "bard",
@@ -64,20 +64,32 @@ Picks spells, cantrips, proficiencies and health stats for wizard class from ext
 
 
 def get_character(character):
+    # Fetching additional data for spellcasters
     if character["type"] == "spellcaster" :
-        cantrips = character["cantrips"] 
+        cantrips = character["cantrips"]
+        cantrip_count = character["spell_details"][0]
         print("\nCantrips:")
-        for i in range(0, 3):
+        for i in range(0, cantrip_count):
             random_num = random.randint(0, len(cantrips)-1)
             print(" {}: {}".format(i+1, cantrips[random_num]))
             cantrips.pop(random_num)
-        
+
+        spell_slots = character["spell_details"][2]
+        print("\n{}: {}".format("Spell slots", spell_slots))
+
         spells = character["spells"]
-        print("\nSpells:")
-        for i in range(0, 6):
-            random_num = random.randint(0, len(spells)-1)
-            print(" {}: {}".format(i+1, spells[random_num]))
-            spells.pop(random_num)
+        print("Spells:")
+        spell_count = character["spell_details"][1]
+        if spell_count > 0:
+            for i in range(0, spell_count):
+                random_num = random.randint(0, len(spells)-1)
+                print(" {}: {}".format(i+1, spells[random_num]))
+                spells.pop(random_num)
+        else:
+            for i in range(0, len(spells)):
+                random_num = random.randint(0, len(spells)-1)
+                print(" {}: {}".format(i+1, spells[random_num]))
+                spells.pop(random_num)
         
     proficiencies = character["proficiencies"]
     print("\nProficiencies:")

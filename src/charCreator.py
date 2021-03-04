@@ -1,4 +1,3 @@
-
 from character import Character
 
 
@@ -13,6 +12,10 @@ while repeat:
         if 'n' in user_input.lower():
             repeat = False
             print("Shutting down")
+        elif 'y' in user_input.lower() or "" == user_input:
+            print("rolling a new character")
+        else:
+            print("Invalid input.")
     else:
         repeat = False
         print("Goodbye")

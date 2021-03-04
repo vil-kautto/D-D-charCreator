@@ -1,5 +1,5 @@
 import json
-
+import os
 # Simply defines class features based on available data and translates it into json format
 
 
@@ -22,7 +22,7 @@ def add_barbarian_data(class_data):
     equipment = {
         "Primary": ["Greataxe", "Any martial weapon"],
         "Secondary": ["Component Pouch", "Arcane Focus"],
-        "Tertiary": [],
+        "Tertiary": ["None"],
         "Bags": ["Explorer's bag & 4 javelins"]
         
     }
@@ -893,5 +893,9 @@ data["wizard"] = add_wizard_data(data["wizard"])
 data["warlock"] = add_warlock_data(data["warlock"])
 print(data)
 
-with open('class_data.json', 'w') as outfile:
-    json.dump(data, outfile, indent=4)
+path = "../data/class_data.json"
+try:
+    os.mkdir('../data/')
+finally:
+    with open(path, 'w') as outfile:
+        json.dump(data, outfile, indent=4)

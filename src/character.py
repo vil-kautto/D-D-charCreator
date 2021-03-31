@@ -65,7 +65,6 @@ class Character:
         return int(value / 2 - 5)
 
         # Gives the character a list of attributes and modifiers
-
     def get_random_attr(self, attr):
         print("\nAttributes:")
         for key, value in attr.items():
@@ -150,6 +149,5 @@ class Character:
         }
         return races[i]
 
-    @staticmethod
-    def get_race_details(self, race_name):
-        print(race_name)
+    def get_data(self):
+        return self.data

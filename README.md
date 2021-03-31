@@ -31,11 +31,6 @@ Currently the program has the following features:
   - Starting equipment
   - Races, Racial attributes and abilities
 
-Yet to be added for 1.0, the MVP release:
-
-- Character details
-  - Random gold amount for each character
-
 Nice to haves and potential development ideas:
 
 - Make a GUI for the application

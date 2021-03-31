@@ -1,4 +1,4 @@
-# D&D character creator (Ongoing development)
+# D&D character creator
 
 ![Image](/images/demo.png)
 

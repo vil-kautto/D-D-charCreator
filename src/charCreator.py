@@ -1,8 +1,6 @@
 from character import Character
 
-
 # The program generates new characters until the user stops the program
-# TODO: create characters via objects
 repeat = True
 while repeat:
     if repeat:

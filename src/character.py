@@ -9,25 +9,42 @@ class Character:
         with open('../data/class_data.json') as file:
             self.class_data = json.load(file)
 
-        self.data = {"attributes": {
-            "Strength": 0,
-            "Dexterity": 0,
-            "Constitution": 0,
-            "Intelligence": 0,
-            "Wisdom": 0,
-            "Charisma": 0
-        }}
-        # char = Character()
-        class_name = self.get_class(random.randint(1, 12))
-        print('Class: {}'.format(class_name.capitalize()))
+        self.race_data = {}
+        with open('../data/race_data.json') as file:
+            self.race_data = json.load(file)
+
+        self.data = {
+            "attributes": {
+                "Strength": 0,
+                "Dexterity": 0,
+                "Constitution": 0,
+                "Intelligence": 0,
+                "Wisdom": 0,
+                "Charisma": 0
+            },
+            "features": []
+        }
+        char_class = self.get_class(random.randint(1, 12))
+        print('Class: {}'.format(char_class.capitalize()))
         char_race = self.get_race(random.randint(1, 9))
         print('Race: {}'.format(char_race.capitalize()))
 
-        # Generating, modifying and printing random attributes
-        self.data['attributes'] = self.get_random_attr(self.data['attributes'])
+        print("\nRacial Features:")
+        self.data["features"].append(self.race_data[char_race]["features"])
+        for feature in self.data["features"][0]:
+            print("  {}".format(feature))
 
-        # class_data[className] =
-        self.get_class_details(self.class_data[class_name])
+        print("\nClass Features:")
+        self.data["features"].append(self.class_data[char_class]["features"])
+        for feature in self.data["features"][1]:
+            print("  {}".format(feature))
+
+        # Generating, modifying and printing random attributes
+        self.data["attributes"] = self.race_data[char_race]["attributes"]
+        self.get_random_attr(self.data['attributes'])
+
+        self.get_class_details(self.class_data[char_class])
+        # self.get_race_details(self.class_data[char_race])
 
     # Generates stats based on following model: 4d6 - smallestRoll
     # Generated stats are between 3-18, minor bias on median
@@ -38,7 +55,7 @@ class Character:
             random_nums[i] = random.randint(1, 6)
 
         # Sort the list, remove the smallest number and return the sum of remaining values
-        random_nums.sort();
+        random_nums.sort()
         random_nums.pop(0)
         return sum(random_nums)
 
@@ -52,10 +69,10 @@ class Character:
     def get_random_attr(self, attr):
         print("\nAttributes:")
         for key, value in attr.items():
-            value = self.generate_stat()
+            value = self.data['attributes'][key] + self.generate_stat()
             modifier = self.define_modifier(value)
             print(' {}: {}, Modifier: {:+d}'.format(key, value, modifier))
-        return attr
+            self.data['attributes'][key] = value
 
     # Selects a class form all classes based on input
     @staticmethod
@@ -121,14 +138,18 @@ class Character:
     @staticmethod
     def get_race(i):
         races = {
-            1: "human",
-            2: "human",
-            3: "human",
-            4: "human",
-            5: "human",
-            6: "human",
-            7: "human",
+            1: "dragonborn",
+            2: "dwarf",
+            3: "elf",
+            4: "gnome",
+            5: "half-elf",
+            6: "halfling",
+            7: "half-orc",
             8: "human",
-            9: "human",
+            9: "tiefling",
         }
         return races[i]
+
+    @staticmethod
+    def get_race_details(self, race_name):
+        print(race_name)

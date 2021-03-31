@@ -6,7 +6,8 @@ import os
 # Barbarian class Data
 def add_barbarian_data(class_data):
     class_data["type"] = "warrior"
-    print("Adding class data: Barbarian")
+    if debug:
+        print("Adding class data: Barbarian")
     
     # Class proficiencies
     proficiencies = {
@@ -15,7 +16,8 @@ def add_barbarian_data(class_data):
         "Tools": "None",
         "Skills (2)": "Animal Handling, Athletics, Intimidation, Nature, Perception, Survival"
     }
-    print("{} {}".format(len(proficiencies), "proficiency entries added"))
+    if debug:
+        print("{} {}".format(len(proficiencies), "proficiency entries added"))
     class_data["proficiencies"] = proficiencies
     
     # Class start equipment
@@ -26,7 +28,8 @@ def add_barbarian_data(class_data):
         "Bags": ["Explorer's bag & 4 javelins"]
         
     }
-    print("{} {}".format(len(equipment), "equipment entries added"))
+    if debug:
+        print("{} {}".format(len(equipment), "equipment entries added"))
     class_data["equipment"] = equipment
 
     # Class Features
@@ -34,7 +37,8 @@ def add_barbarian_data(class_data):
         "Rage",
         "Unarmored defence"
     ]
-    print("{} {}".format(len(features), "features added"))
+    if debug:
+        print("{} {}".format(len(features), "features added"))
     class_data["features"] = features
     
     # Class health data
@@ -44,7 +48,8 @@ def add_barbarian_data(class_data):
         "Hit Point Scaling": "1d12 (or 7) + Constitution modifier",
         "Saving Throws": "Str/Const"
     }
-    print("{} {}".format(len(health), "health entries added"))
+    if debug:
+        print("{} {}".format(len(health), "health entries added"))
     class_data["health"] = health
     
     return class_data
@@ -52,7 +57,8 @@ def add_barbarian_data(class_data):
 
 # Bard class data
 def add_bard_data(class_data):
-    print("Adding class data: Bard")
+    if debug:
+        print("Adding class data: Bard")
     class_data["type"] = "spellcaster"
     class_data["spell_details"] = [2, 4, 2]
 
@@ -71,7 +77,8 @@ def add_bard_data(class_data):
         "True Strike",
         "Vicious Mockery"
     ]
-    print("{} {}".format(len(cantrips), "cantrip entries added"))
+    if debug:
+        print("{} {}".format(len(cantrips), "cantrip entries added"))
     class_data["cantrips"] = cantrips
 
     # Class 1st level spells
@@ -100,7 +107,8 @@ def add_bard_data(class_data):
         "Thunderwave",
         "Unseen Servant",
     ]
-    print("{} {}".format(len(spells), "spell entries added"))
+    if debug:
+        print("{} {}".format(len(spells), "spell entries added"))
     class_data["spells"] = spells
 
     # class proficiencies
@@ -110,7 +118,8 @@ def add_bard_data(class_data):
         "Tools": "3 Musical instruments of your choice",
         "Skills": "Select 3 minor skills"
     }
-    print("{} {}".format(len(proficiencies), "proficiency entries added"))
+    if debug:
+        print("{} {}".format(len(proficiencies), "proficiency entries added"))
     class_data["proficiencies"] = proficiencies
 
     # class start equipment
@@ -120,7 +129,8 @@ def add_bard_data(class_data):
         "Tertiary": ["Lute", "Other instrument"],
         "Bags": ["Diplomat's pack", "Entertainer's pack"]
     }
-    print("{} {}".format(len(equipment), "equipment entries added"))
+    if debug:
+        print("{} {}".format(len(equipment), "equipment entries added"))
     class_data["equipment"] = equipment
 
     # Class Features
@@ -128,7 +138,8 @@ def add_bard_data(class_data):
         "Spellcasting",
         "Bardic Inspiration"
     ]
-    print("{} {}".format(len(features), "features added"))
+    if debug:
+        print("{} {}".format(len(features), "features added"))
     class_data["features"] = features
 
     # Class health data
@@ -138,7 +149,8 @@ def add_bard_data(class_data):
         "Hit Point Scaling": "1d8 (or 5) + Constitution modifier",
         "Saving Throws": "Dex/Cha"
     }
-    print("{} {}".format(len(health), "health entries added"))
+    if debug:
+        print("{} {}".format(len(health), "health entries added"))
     class_data["health"] = health
 
     return class_data
@@ -146,7 +158,8 @@ def add_bard_data(class_data):
 
 # Cleric class Data
 def add_cleric_data(class_data):
-    print("Adding class data: cleric")
+    if debug:
+        print("Adding class data: cleric")
     class_data["type"] = "spellcaster"
     class_data["spell_details"] = [3, 0, 2]
 
@@ -162,7 +175,8 @@ def add_cleric_data(class_data):
         "Toll the Dead",
         "Word of Radiance",
     ]
-    print("{} {}".format(len(cantrips), "cantrips added"))
+    if debug:
+        print("{} {}".format(len(cantrips), "cantrips added"))
     class_data["cantrips"] = cantrips
 
     # Class 1st level spells
@@ -184,7 +198,8 @@ def add_cleric_data(class_data):
         "Sanctuary",
         "Shield of Faith",
     ]
-    print("{} {}".format(len(spells), "spells added"))
+    if debug:
+        print("{} {}".format(len(spells), "spells added"))
     class_data["spells"] = spells
 
     # Class start equipment
@@ -194,7 +209,8 @@ def add_cleric_data(class_data):
         "Tools": "None",
         "Skills (2)": "History, Insight, Medicine, Persuasion, Religion"
     }
-    print("{} {}".format(len(proficiencies), "proficiency entries added"))
+    if debug:
+        print("{} {}".format(len(proficiencies), "proficiency entries added"))
     class_data["proficiencies"] = proficiencies
 
     # Class start equipment
@@ -204,7 +220,8 @@ def add_cleric_data(class_data):
         "Tertiary": ["Shield & holy symbol"],
         "Bags": ["Priest's bag", "Explorer's bag"]
     }
-    print("{} {}".format(len(equipment), "equipment entries added"))
+    if debug:
+        print("{} {}".format(len(equipment), "equipment entries added"))
     class_data["equipment"] = equipment
 
     # Class features
@@ -212,7 +229,8 @@ def add_cleric_data(class_data):
         "Spellcasting",
         "Divine Domain"
     ]
-    print("{} {}".format(len(features), "features added"))
+    if debug:
+        print("{} {}".format(len(features), "features added"))
     class_data["features"] = features
 
     # Class health data
@@ -222,7 +240,8 @@ def add_cleric_data(class_data):
         "Hit Point Scaling": "1d8 (or 5) + Constitution modifier",
         "Saving Throws": "Wis/Cha"
     }
-    print("{} {}".format(len(health), "health entries added"))
+    if debug:
+        print("{} {}".format(len(health), "health entries added"))
     class_data["health"] = health
 
     return class_data
@@ -230,7 +249,8 @@ def add_cleric_data(class_data):
 
 # Druid class Data
 def add_druid_data(class_data):
-    print("Adding class data: Druid")
+    if debug:
+        print("Adding class data: Druid")
     class_data["type"] = "spellcaster"
     class_data["spell_details"] = [2, 0, 2]
 
@@ -258,7 +278,8 @@ def add_druid_data(class_data):
         "Toll the Dead",
         "True Strike",
     ]
-    print("{} {}".format(len(cantrips), "cantrips added"))
+    if debug:
+        print("{} {}".format(len(cantrips), "cantrips added"))
     class_data["cantrips"] = cantrips
 
     # Class 1st level spells
@@ -284,7 +305,8 @@ def add_druid_data(class_data):
         "Speak with Animals",
         "Thunderwave"
     ]
-    print("{} {}".format(len(spells), "spells added"))
+    if debug:
+        print("{} {}".format(len(spells), "spells added"))
     class_data["spells"] = spells
 
     # Class proficiencies
@@ -294,7 +316,8 @@ def add_druid_data(class_data):
         "Tools": "Herbalism kit",
         "Skills (2)": "Arcana, Animal Handling, Insight, Medicine, Nature, Perception, Religion, Survival"
     }
-    print("{} {}".format(len(proficiencies), "proficiency entries added"))
+    if debug:
+        print("{} {}".format(len(proficiencies), "proficiency entries added"))
     class_data["proficiencies"] = proficiencies
 
     # Class start equipment
@@ -304,7 +327,8 @@ def add_druid_data(class_data):
         "Tertiary": ["Leather Armour & Druidic Focus"],
         "Bags": ["Explorer's pack"]
     }
-    print("{} {}".format(len(equipment), "equipment entries added"))
+    if debug:
+        print("{} {}".format(len(equipment), "equipment entries added"))
     class_data["equipment"] = equipment
 
     # Class features
@@ -312,7 +336,8 @@ def add_druid_data(class_data):
         "Druidic",
         "Spellcasting"
     ]
-    print("{} {}".format(len(features), "features added"))
+    if debug:
+        print("{} {}".format(len(features), "features added"))
     class_data["features"] = features
 
     # Class health data
@@ -322,7 +347,8 @@ def add_druid_data(class_data):
         "Hit Point Scaling": "1d8 (or 5) + Constitution modifier",
         "Saving Throws": "Int/Wis"
     }
-    print("{} {}".format(len(health), "health entries added"))
+    if debug:
+        print("{} {}".format(len(health), "health entries added"))
     class_data["health"] = health
 
     return class_data
@@ -331,7 +357,8 @@ def add_druid_data(class_data):
 # Fighter class Data
 def add_fighter_data(class_data):
     class_data["type"] = "warrior"
-    print("Adding class data: Fighter")
+    if debug:
+        print("Adding class data: Fighter")
 
     # Class proficiencies
     proficiencies = {
@@ -340,7 +367,8 @@ def add_fighter_data(class_data):
         "Tools": "None",
         "Skills (2)": "Acrobatics, Animal Handling, Athletics, History, Insight, Intimidation, Perception, Survival"
     }
-    print("{} {}".format(len(proficiencies), "proficiency entries added"))
+    if debug:
+        print("{} {}".format(len(proficiencies), "proficiency entries added"))
     class_data["proficiencies"] = proficiencies
 
     # Class start equipment
@@ -349,9 +377,9 @@ def add_fighter_data(class_data):
         "Secondary": ["Martial Weapon & shield", "2 Martial Weapons"],
         "Tertiary": ["Light crossbow & 20 bolts", "2 Handaxes"],
         "Bags": ["Explorer's pack", "Dungeoneer's pack"]
-
     }
-    print("{} {}".format(len(equipment), "equipment entries added"))
+    if debug:
+        print("{} {}".format(len(equipment), "equipment entries added"))
     class_data["equipment"] = equipment
 
     # Class Features
@@ -359,7 +387,8 @@ def add_fighter_data(class_data):
         "Fighting Style",
         "Second Wind"
     ]
-    print("{} {}".format(len(features), "features added"))
+    if debug:
+        print("{} {}".format(len(features), "features added"))
     class_data["features"] = features
 
     # Class health data
@@ -369,7 +398,8 @@ def add_fighter_data(class_data):
         "Hit Point Scaling": "1d10 (or 6) + Constitution modifier",
         "Saving Throws": "Str/Const"
     }
-    print("{} {}".format(len(health), "health entries added"))
+    if debug:
+        print("{} {}".format(len(health), "health entries added"))
     class_data["health"] = health
 
     return class_data
@@ -378,7 +408,8 @@ def add_fighter_data(class_data):
 # Monk class Data
 def add_monk_data(class_data):
     class_data["type"] = "warrior"
-    print("Adding class data: Monk")
+    if debug:
+        print("Adding class data: Monk")
 
     # Class proficiencies
     proficiencies = {
@@ -387,7 +418,8 @@ def add_monk_data(class_data):
         "Tools": "Choose one type of artisan's tools or one musical instrument",
         "Skills (2)": "Acrobatics, Athletics, History, Insight, Religion, Stealth"
     }
-    print("{} {}".format(len(proficiencies), "proficiency entries added"))
+    if debug:
+        print("{} {}".format(len(proficiencies), "proficiency entries added"))
     class_data["proficiencies"] = proficiencies
 
     # Class start equipment
@@ -398,7 +430,8 @@ def add_monk_data(class_data):
         "Bags": ["Explorer's pack", "Dungeoneer's pack"]
 
     }
-    print("{} {}".format(len(equipment), "equipment entries added"))
+    if debug:
+        print("{} {}".format(len(equipment), "equipment entries added"))
     class_data["equipment"] = equipment
 
     # Class Features
@@ -406,7 +439,8 @@ def add_monk_data(class_data):
         "Unarmoured Defense",
         "Martial Arts"
     ]
-    print("{} {}".format(len(features), "features added"))
+    if debug:
+        print("{} {}".format(len(features), "features added"))
     class_data["features"] = features
 
     # Class health data
@@ -416,7 +450,8 @@ def add_monk_data(class_data):
         "Hit Point Scaling": "1d8 (or 5) + Constitution modifier",
         "Saving Throws": "Str/Dex"
     }
-    print("{} {}".format(len(health), "health entries added"))
+    if debug:
+        print("{} {}".format(len(health), "health entries added"))
     class_data["health"] = health
 
     return class_data
@@ -424,7 +459,8 @@ def add_monk_data(class_data):
 
 # Cleric class Data
 def add_paladin_data(class_data):
-    print("Adding class data: Paladin")
+    if debug:
+        print("Adding class data: Paladin")
     class_data["type"] = "warrior"
 
     # Class start equipment
@@ -434,7 +470,8 @@ def add_paladin_data(class_data):
         "Tools": "None",
         "Skills (2)": "Athletics, Insight, Intimidation, Medicine, Persuasion, Religion"
     }
-    print("{} {}".format(len(proficiencies), "proficiency entries added"))
+    if debug:
+        print("{} {}".format(len(proficiencies), "proficiency entries added"))
     class_data["proficiencies"] = proficiencies
 
     # Class start equipment
@@ -444,7 +481,8 @@ def add_paladin_data(class_data):
         "Tertiary": ["Chain Mail & holy symbol"],
         "Bags": ["Priest's pack", "Explorer's pack"]
     }
-    print("{} {}".format(len(equipment), "equipment entries added"))
+    if debug:
+        print("{} {}".format(len(equipment), "equipment entries added"))
     class_data["equipment"] = equipment
 
     # Class features
@@ -452,7 +490,8 @@ def add_paladin_data(class_data):
         "Divine Sense",
         "Lay on Hands"
     ]
-    print("{} {}".format(len(features), "features added"))
+    if debug:
+        print("{} {}".format(len(features), "features added"))
     class_data["features"] = features
 
     # Class health data
@@ -462,7 +501,8 @@ def add_paladin_data(class_data):
         "Hit Point Scaling": "1d10 (or 6) + Constitution modifier",
         "Saving Throws": "Wis/Cha"
     }
-    print("{} {}".format(len(health), "health entries added"))
+    if debug:
+        print("{} {}".format(len(health), "health entries added"))
     class_data["health"] = health
 
     return class_data
@@ -471,7 +511,8 @@ def add_paladin_data(class_data):
 # Ranger class Data
 def add_ranger_data(class_data):
     class_data["type"] = "warrior"
-    print("Adding class data: Ranger")
+    if debug:
+        print("Adding class data: Ranger")
 
     # Class proficiencies
     proficiencies = {
@@ -480,7 +521,8 @@ def add_ranger_data(class_data):
         "Tools": "None",
         "Skills (3)": "Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, Survival"
     }
-    print("{} {}".format(len(proficiencies), "proficiency entries added"))
+    if debug:
+        print("{} {}".format(len(proficiencies), "proficiency entries added"))
     class_data["proficiencies"] = proficiencies
 
     # Class start equipment
@@ -490,7 +532,8 @@ def add_ranger_data(class_data):
         "Tertiary": ["Longbow & quiver with 20 arrows"],
         "Bags": ["Explorer's pack", "Dungeoneer's pack"]
     }
-    print("{} {}".format(len(equipment), "equipment entries added"))
+    if debug:
+        print("{} {}".format(len(equipment), "equipment entries added"))
     class_data["equipment"] = equipment
 
     # Class Features
@@ -498,7 +541,8 @@ def add_ranger_data(class_data):
         "Favored Enemy",
         "Natural Explorer"
     ]
-    print("{} {}".format(len(features), "features added"))
+    if debug:
+        print("{} {}".format(len(features), "features added"))
     class_data["features"] = features
 
     # Class health data
@@ -508,7 +552,8 @@ def add_ranger_data(class_data):
         "Hit Point Scaling": "1d10 (or 6) + Constitution modifier",
         "Saving Throws": "Str/Dex"
     }
-    print("{} {}".format(len(health), "health entries added"))
+    if debug:
+        print("{} {}".format(len(health), "health entries added"))
     class_data["health"] = health
 
     return class_data
@@ -517,7 +562,8 @@ def add_ranger_data(class_data):
 # Rogue class Data
 def add_rogue_data(class_data):
     class_data["type"] = "warrior"
-    print("Adding class data: Ranger")
+    if debug:
+        print("Adding class data: Ranger")
 
     # Class proficiencies
     proficiencies = {
@@ -527,7 +573,8 @@ def add_rogue_data(class_data):
         "Skills (4)": "Acrobatics, Athletics, Deception, Insight, Intimidation, Investigation,\n"
                       " Perception, Performance, Persuasion, Sleight of Hand, and Stealth"
     }
-    print("{} {}".format(len(proficiencies), "proficiency entries added"))
+    if debug:
+        print("{} {}".format(len(proficiencies), "proficiency entries added"))
     class_data["proficiencies"] = proficiencies
 
     # Class start equipment
@@ -537,7 +584,8 @@ def add_rogue_data(class_data):
         "Tertiary": ["Leather Armour, Two Daggers & thieves' tools"],
         "Bags": ["Explorer's pack", "Dungeoneer's pack", "Burglar's pack"]
     }
-    print("{} {}".format(len(equipment), "equipment entries added"))
+    if debug:
+        print("{} {}".format(len(equipment), "equipment entries added"))
     class_data["equipment"] = equipment
 
     # Class Features
@@ -546,7 +594,8 @@ def add_rogue_data(class_data):
         "Sneak Attack",
         "Thieves' Cant"
     ]
-    print("{} {}".format(len(features), "features added"))
+    if debug:
+        print("{} {}".format(len(features), "features added"))
     class_data["features"] = features
 
     # Class health data
@@ -556,7 +605,8 @@ def add_rogue_data(class_data):
         "Hit Point Scaling": "1d10 (or 5) + Constitution modifier",
         "Saving Throws": "Dex/Int"
     }
-    print("{} {}".format(len(health), "health entries added"))
+    if debug:
+        print("{} {}".format(len(health), "health entries added"))
     class_data["health"] = health
 
     return class_data
@@ -564,7 +614,8 @@ def add_rogue_data(class_data):
 
 # Sorcerer class data
 def add_sorcerer_data(class_data):
-    print("Adding class data: Wizard")
+    if debug:
+        print("Adding class data: Wizard")
     class_data["type"] = "spellcaster"
     class_data["spell_details"] = [4, 2, 2]
 
@@ -600,7 +651,8 @@ def add_sorcerer_data(class_data):
         "Thunderclap",
         "True Strike",
     ]
-    print("{} {}".format(len(cantrips), "cantrip entries added"))
+    if debug:
+        print("{} {}".format(len(cantrips), "cantrip entries added"))
     class_data["cantrips"] = cantrips
 
     # Class 1st level spells
@@ -633,7 +685,8 @@ def add_sorcerer_data(class_data):
         "Thunderwave",
         "Witch Bolt",
     ]
-    print("{} {}".format(len(spells), "spell entries added"))
+    if debug:
+        print("{} {}".format(len(spells), "spell entries added"))
     class_data["spells"] = spells
 
     # Class proficiencies
@@ -643,7 +696,8 @@ def add_sorcerer_data(class_data):
         "Tools": "None",
         "Skills (2)": "Arcane, Deception, Insight, Intimidation, Persuasion, Religion"
     }
-    print("{} {}".format(len(proficiencies), "proficiency entries added"))
+    if debug:
+        print("{} {}".format(len(proficiencies), "proficiency entries added"))
     class_data["proficiencies"] = proficiencies
 
     # Class start equipment
@@ -653,7 +707,8 @@ def add_sorcerer_data(class_data):
         "Tertiary": ["Two Daggers"],
         "Bags": ["Dungeoneer's bag", "Explorer's bag"]
     }
-    print("{} {}".format(len(equipment), "equipment entries added"))
+    if debug:
+        print("{} {}".format(len(equipment), "equipment entries added"))
     class_data["equipment"] = equipment
 
     # Class Features
@@ -661,7 +716,8 @@ def add_sorcerer_data(class_data):
         "Spellcasting",
         "Sorcerous Origin"
     ]
-    print("{} {}".format(len(features), "features added"))
+    if debug:
+        print("{} {}".format(len(features), "features added"))
     class_data["features"] = features
 
     # Class health data
@@ -671,7 +727,8 @@ def add_sorcerer_data(class_data):
         "Hit Point Scaling": "1d6 (or 4) + Constitution modifier",
         "Saving Throws": "Const/Cha"
     }
-    print("{} {}".format(len(health), "health entries added"))
+    if debug:
+        print("{} {}".format(len(health), "health entries added"))
     class_data["health"] = health
 
     return class_data
@@ -679,7 +736,8 @@ def add_sorcerer_data(class_data):
 
 # Wizard class data
 def add_wizard_data(class_data):
-    print("Adding class data: Wizard")
+    if debug:
+        print("Adding class data: Wizard")
     class_data["type"] = "spellcaster"
     class_data["spell_details"] = [3, 6, 2]
     
@@ -700,7 +758,8 @@ def add_wizard_data(class_data):
         "Shoking Grasp",
         "True Strike",
     ]
-    print("{} {}".format(len(cantrips), "cantrip entries added"))
+    if debug:
+        print("{} {}".format(len(cantrips), "cantrip entries added"))
     class_data["cantrips"] = cantrips
     
     # Class 1st level spells
@@ -731,7 +790,8 @@ def add_wizard_data(class_data):
         "Thunderwave",
         "Unseen Servant",
     ]
-    print("{} {}".format(len(spells), "spell entries added"))
+    if debug:
+        print("{} {}".format(len(spells), "spell entries added"))
     class_data["spells"] = spells
     
     # Class proficiencies
@@ -741,7 +801,8 @@ def add_wizard_data(class_data):
         "Tools": "None",
         "Skills (2)": "Arcane, History, Investigation, Medicine, Religion"
     }
-    print("{} {}".format(len(proficiencies), "proficiency entries added"))
+    if debug:
+        print("{} {}".format(len(proficiencies), "proficiency entries added"))
     class_data["proficiencies"] = proficiencies
     
     # Class start equipment
@@ -751,7 +812,8 @@ def add_wizard_data(class_data):
         "Tertiary": ["Spellbook"],
         "Bags": ["Scholar's bag", "Explorer's bag"]
     }
-    print("{} {}".format(len(equipment), "equipment entries added"))
+    if debug:
+        print("{} {}".format(len(equipment), "equipment entries added"))
     class_data["equipment"] = equipment
 
     # Class Features
@@ -759,7 +821,8 @@ def add_wizard_data(class_data):
         "Spellcasting",
         "Arcane Recovery"
     ]
-    print("{} {}".format(len(features), "features added"))
+    if debug:
+        print("{} {}".format(len(features), "features added"))
     class_data["features"] = features
 
     # Class health data
@@ -769,7 +832,8 @@ def add_wizard_data(class_data):
         "Hit Point Scaling": "1d6 (or 4) + Constitution modifier",
         "Saving Throws": "Int/Wis"
     }
-    print("{} {}".format(len(health), "health entries added"))
+    if debug:
+        print("{} {}".format(len(health), "health entries added"))
     class_data["health"] = health
     
     return class_data
@@ -777,7 +841,8 @@ def add_wizard_data(class_data):
 
 # Warlock class Data
 def add_warlock_data(class_data):
-    print("Adding class data: Warlock")
+    if debug:
+        print("Adding class data: Warlock")
     class_data["type"] = "spellcaster"
     class_data["spell_details"] = [2, 2, 1]
     
@@ -803,7 +868,8 @@ def add_warlock_data(class_data):
         "Toll the Dead",
         "True Strike",
     ]
-    print("{} {}".format(len(cantrips), "cantrips added"))
+    if debug:
+        print("{} {}".format(len(cantrips), "cantrips added"))
     class_data["cantrips"] = cantrips
     
     spells = [
@@ -811,7 +877,7 @@ def add_warlock_data(class_data):
         "Arms of Hadar",
         "Charm Person",
         "Cause Fear",
-        "Color Spary",
+        "Color Spray",
         "Comprehend Languages",
         "Distort Value",
         "Expeditious Retreat",
@@ -822,7 +888,8 @@ def add_warlock_data(class_data):
         "Unseen Servant",
         "Witch Bolt",
     ]
-    print("{} {}".format(len(spells), "spells added"))
+    if debug:
+        print("{} {}".format(len(spells), "spells added"))
     class_data["spells"] = spells
     
     proficiencies = {
@@ -831,7 +898,8 @@ def add_warlock_data(class_data):
         "Tools": "None",
         "Skills (2)": "Arcana, Deception, History, Intimidation, Investigation, Nature, Religion"
     }
-    print("{} {}".format(len(proficiencies), "proficiency entries added"))
+    if debug:
+        print("{} {}".format(len(proficiencies), "proficiency entries added"))
     class_data["proficiencies"] = proficiencies
 
     # class start equipment
@@ -841,7 +909,8 @@ def add_warlock_data(class_data):
         "Tertiary": ["Leather armor", "Simple weapon", "2 Daggers"],
         "Bags": ["Scholar's bag", "Dungeoneer's bag"]
     }
-    print("{} {}".format(len(equipment), "equipment entries added"))
+    if debug:
+        print("{} {}".format(len(equipment), "equipment entries added"))
     class_data["equipment"] = equipment
 
     # Class features
@@ -849,7 +918,8 @@ def add_warlock_data(class_data):
         "Otherworldly Patron",
         "Pact magic"
     ]
-    print("{} {}".format(len(features), "features added"))
+    if debug:
+        print("{} {}".format(len(features), "features added"))
     class_data["features"] = features
     
     health = {
@@ -858,27 +928,28 @@ def add_warlock_data(class_data):
         "Hit Point Scaling": "1d8 (or 5) + Constitution modifier",
         "Saving Throws": "Wis/Cha"
     }
-    print("{} {}".format(len(health), "health entries added"))
+    if debug:
+        print("{} {}".format(len(health), "health entries added"))
     class_data["health"] = health
     
     return class_data
 
 
-# TODO: details to cantrips, skills and spells
-data = {}
-data["barbarian"] = {}
-data["bard"] = {}
-data["cleric"] = {}
-data["druid"] = {}
-data["fighter"] = {}
-data["monk"] = {}
-data["paladin"] = {}
-data["ranger"] = {}
-data["rogue"] = {}
-data["sorcerer"] = {}
-data["wizard"] = {}
-data["warlock"] = {}
-
+debug = False
+data = {
+        "barbarian": {},
+        "bard": {},
+        "cleric": {},
+        "druid": {},
+        "fighter": {},
+        "monk": {},
+        "paladin": {},
+        "ranger": {},
+        "rogue": {},
+        "sorcerer": {},
+        "wizard": {},
+        "warlock": {}
+        }
 data["barbarian"] = add_barbarian_data(data["barbarian"])
 data["bard"] = add_bard_data(data["bard"])
 data["cleric"] = add_cleric_data(data["cleric"])
@@ -891,11 +962,15 @@ data["rogue"] = add_rogue_data(data["rogue"])
 data["sorcerer"] = add_sorcerer_data(data["sorcerer"])
 data["wizard"] = add_wizard_data(data["wizard"])
 data["warlock"] = add_warlock_data(data["warlock"])
-print(data)
+print("Class data generated.")
+if debug:
+    print(data)
 
 path = "../data/class_data.json"
 try:
     os.mkdir('../data/')
+except FileExistsError:
+    print("")
 finally:
     with open(path, 'w') as outfile:
         json.dump(data, outfile, indent=4)

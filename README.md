@@ -16,7 +16,7 @@ The program uses a standard procedure for stat generation:
 
 `4d6 - the smallest roll`
 
-This gives the generated character a start with attributes between 3-18, with a small weight towards the larger numbers.
+This gives the generated character a start with attributes between 3-18, with a weight towards larger numbers.
 
 *Note: the attributes can be larger than 18 via racial bonuses.*
 
@@ -44,7 +44,7 @@ Nice to haves and potential development ideas:
 
 ### Usage
 
-Clone the latest version and run start.bat, can't really get simpler than that
+Clone the latest version and run start.bat (Windows) or start.sh (Unix), can't really get simpler than that
 
 ## Development environment
 

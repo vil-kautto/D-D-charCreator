@@ -14,7 +14,7 @@ All data related to character creation is from [D&D Beyond](https://www.dndbeyon
 
 ### Features
 Currently the program has the following features:
-
+- Saving rolled characters in .json format
 - Character details:
   - Class traits
   - Attributes

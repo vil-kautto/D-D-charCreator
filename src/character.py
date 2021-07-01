@@ -22,12 +22,18 @@ class Character:
                 "Wisdom": 0,
                 "Charisma": 0
             },
-            "features": []
+            "features": [],
+            "speed": 0,
+            "size": "nan"
         }
         char_class = self.get_class(random.randint(1, 12))
         print('Class: {}'.format(char_class.capitalize()))
         char_race = self.get_race(random.randint(1, 9))
         print('Race: {}'.format(char_race.capitalize()))
+        size = self.race_data[char_race]["size"].capitalize()
+        print('  Size: {!s}'.format(size))
+        speed = self.race_data[char_race]["speed"]
+        print('  Speed: {}ft'.format(speed))
 
         print("\nRacial Features:")
         self.data["features"].append(self.race_data[char_race]["features"])
@@ -44,7 +50,6 @@ class Character:
         self.get_random_attr(self.data['attributes'])
 
         self.get_class_details(self.class_data[char_class])
-        # self.get_race_details(self.class_data[char_race])
 
     # Generates stats based on following model: 4d6 - smallestRoll
     # Generated stats are between 3-18, minor bias on median
@@ -70,7 +75,7 @@ class Character:
         for key, value in attr.items():
             value = self.data['attributes'][key] + self.generate_stat()
             modifier = self.define_modifier(value)
-            print(' {}: {}, Modifier: {:+d}'.format(key, value, modifier))
+            print('  {}: {}, Modifier: {:+d}'.format(key, value, modifier))
             self.data['attributes'][key] = value
 
     # Selects a class form all classes based on input
@@ -126,12 +131,12 @@ class Character:
         proficiencies = character["proficiencies"]
         print("\nProficiencies:")
         for key, value in proficiencies.items():
-            print(" {}: {}".format(key, value))
+            print("  {}: {}".format(key, value))
 
         health = character["health"]
         print("\nHealth:")
         for key, value in health.items():
-            print(" {}: {}".format(key, value))
+            print("  {}: {}".format(key, value))
 
     # Selects a race form all races based on input
     @staticmethod

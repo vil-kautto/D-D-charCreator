@@ -18,13 +18,15 @@ def add_dragonborn_data(race_data):
 
     # Attribute bonuses determined by racial traits
     race_data["attributes"] = {
-                "Strength": 2,
-                "Dexterity": 0,
-                "Constitution": 0,
-                "Intelligence": 0,
-                "Wisdom": 0,
-                "Charisma": 1
-            }
+        "Strength": 2,
+        "Dexterity": 0,
+        "Constitution": 0,
+        "Intelligence": 0,
+        "Wisdom": 0,
+        "Charisma": 1
+    }
+    race_data["speed"] = 30
+    race_data["size"] = "Medium"
 
     return race_data
 
@@ -38,7 +40,8 @@ def add_dwarf_data(race_data):
         "Darkvision",
         "Dwarven Resilience",
         "Dwarven Combat Training",
-        "Stonecunning"
+        "Stonecunning",
+        "No heavy armor movement penalty"
     ]
     if debug:
         print("{} {}".format(len(features), "features added"))
@@ -46,13 +49,15 @@ def add_dwarf_data(race_data):
 
     # Attribute bonuses determined by racial traits
     race_data["attributes"] = {
-            "Strength": 0,
-            "Dexterity": 0,
-            "Constitution": 2,
-            "Intelligence": 0,
-            "Wisdom": 0,
-            "Charisma": 0
-        }
+        "Strength": 0,
+        "Dexterity": 0,
+        "Constitution": 2,
+        "Intelligence": 0,
+        "Wisdom": 0,
+        "Charisma": 0
+    }
+    race_data["speed"] = 25
+    race_data["size"] = "Medium"
 
     return race_data
 
@@ -74,13 +79,15 @@ def add_elf_data(race_data):
 
     # Attribute bonuses determined by racial traits
     race_data["attributes"] = {
-            "Strength": 0,
-            "Dexterity": 2,
-            "Constitution": 0,
-            "Intelligence": 0,
-            "Wisdom": 0,
-            "Charisma": 0
-        }
+        "Strength": 0,
+        "Dexterity": 2,
+        "Constitution": 0,
+        "Intelligence": 0,
+        "Wisdom": 0,
+        "Charisma": 0
+    }
+    race_data["speed"] = 30
+    race_data["size"] = "Medium"
 
     return race_data
 
@@ -107,6 +114,8 @@ def add_gnome_data(race_data):
         "Wisdom": 0,
         "Charisma": 0
     }
+    race_data["speed"] = 25
+    race_data["size"] = "Small"
 
     return race_data
 
@@ -135,6 +144,8 @@ def add_half_elf_data(race_data):
         "Wisdom": 0,
         "Charisma": 2
     }
+    race_data["speed"] = 30;
+    race_data["size"] = "Medium";
 
     return race_data
 
@@ -162,6 +173,8 @@ def add_halfling_data(race_data):
         "Wisdom": 0,
         "Charisma": 0
     }
+    race_data["speed"] = 25
+    race_data["size"] = "Small"
 
     return race_data
 
@@ -189,6 +202,8 @@ def add_half_orc_data(race_data):
         "Wisdom": 0,
         "Charisma": 0
     }
+    race_data["speed"] = 30
+    race_data["size"] = "Medium"
 
     return race_data
 
@@ -207,13 +222,15 @@ def add_human_data(race_data):
 
     # Attribute bonuses determined by racial traits
     race_data["attributes"] = {
-            "Strength": 1,
-            "Dexterity": 1,
-            "Constitution": 1,
-            "Intelligence": 1,
-            "Wisdom": 1,
-            "Charisma": 1
-        }
+        "Strength": 1,
+        "Dexterity": 1,
+        "Constitution": 1,
+        "Intelligence": 1,
+        "Wisdom": 1,
+        "Charisma": 1
+    }
+    race_data["speed"] = 30
+    race_data["size"] = "Medium"
 
     return race_data
 
@@ -224,7 +241,7 @@ def add_tiefling_data(race_data):
 
     # Features determined by racial traits
     features = [
-        "DarkVision",
+        "Darkvision",
         "Hellish Resistance",
         "Infernal Legacy"
     ]
@@ -241,22 +258,25 @@ def add_tiefling_data(race_data):
         "Wisdom": 0,
         "Charisma": 2
     }
+    race_data["speed"] = 30
+    race_data["size"] = "Medium"
 
     return race_data
 
 
 debug = False
 data = {
-        "dragonborn": {},
-        "dwarf": {},
-        "elf": {},
-        "gnome": {},
-        "half-elf": {},
-        "halfling": {},
-        "half-orc": {},
-        "human": {},
-        "tiefling": {},
-        }
+    "dragonborn": {},
+    "dwarf": {},
+    "elf": {},
+    "gnome": {},
+    "half-elf": {},
+    "halfling": {},
+    "half-orc": {},
+    "human": {},
+    "tiefling": {}
+}
+
 data["dragoborn"] = add_dragonborn_data(data["dragonborn"])
 data["dwarf"] = add_dwarf_data(data["dwarf"])
 data["elf"] = add_elf_data(data["elf"])

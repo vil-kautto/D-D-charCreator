@@ -1,8 +1,10 @@
 import PySimpleGUI as sg
 from character import Character
+import json
 
 path = "../saved_characters.json"
 
+char = Character()
 
 # Update function
 def update():
@@ -15,13 +17,15 @@ def update():
     window['-size-'].update('  Size: {}'.format(char_data['size']))
     window['-speed-'].update('  Speed: {}ft'.format(char_data['speed']))
 
+    attr = char_data['attributes']
+
     # Attribute details
-    window['-str-'].update("  Strength: {}".format(char_data['attributes']['Strength']))
-    window['-dex-'].update('  Dexterity: {}'.format(char_data['attributes']['Dexterity']))
-    window['-con-'].update('  Constitution: {}'.format(char_data['attributes']['Constitution']))
-    window['-int-'].update("  Intelligence: {}".format(char_data['attributes']['Intelligence']))
-    window['-wis-'].update('  Wisdom: {}'.format(char_data['attributes']['Wisdom']))
-    window['-cha-'].update('  Charisma: {}'.format(char_data['attributes']['Charisma']))
+    window['-str-'].update('  Strength: {}, mod: {:+}'.format(attr['Strength'][0], attr['Strength'][1]))
+    window['-dex-'].update('  Dexterity: {}, mod: {:+}'.format(attr['Dexterity'][0], attr['Dexterity'][1]))
+    window['-con-'].update('  Constitution: {}, mod: {:+}'.format(attr['Constitution'][0], attr['Constitution'][1]))
+    window['-int-'].update('  Intelligence: {}, mod: {:+}'.format(attr['Intelligence'][0], attr['Intelligence'][1]))
+    window['-wis-'].update('  Wisdom: {}, mod: {:+}'.format(attr['Wisdom'][0], attr['Wisdom'][1]))
+    window['-cha-'].update('  Charisma: {}, mod: {:+}'.format(attr['Charisma'][0], attr['Charisma'][1]))
 
 
 # Define the window's contents i.e. layout
@@ -55,6 +59,7 @@ while True:
     if event == 'Roll':
         update()
     if event == 'Save':
-        #save()
+        with open(path, 'a') as outfile:
+            json.dump(char.get_data(), outfile, indent=4)
         break
 window.close()

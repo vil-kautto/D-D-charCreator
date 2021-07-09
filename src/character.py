@@ -15,14 +15,15 @@ class Character:
 
         self.data = {
             "class": self.get_class(random.randint(1, 12)),
+            "type": "null",
             "race": "null",
             "attributes": {
-                "Strength": 0,
-                "Dexterity": 0,
-                "Constitution": 0,
-                "Intelligence": 0,
-                "Wisdom": 0,
-                "Charisma": 0
+                "Strength": [],
+                "Dexterity": [],
+                "Constitution": [],
+                "Intelligence": [],
+                "Wisdom": [],
+                "Charisma": []
             },
             "features": [],
             "speed": 0,
@@ -58,7 +59,7 @@ class Character:
         self.get_class_details(self.class_data[char_class])
 
     # Generates stats based on following model: 4d6 - smallestRoll
-    # Generated stats are between 3-18, minor bias on median
+    # Generated stats are between 3-18, bias on median
     @staticmethod
     def generate_stat():
         random_nums = [0, 0, 0, 0]
@@ -82,7 +83,7 @@ class Character:
             value = self.data['attributes'][key] + self.generate_stat()
             modifier = self.define_modifier(value)
             print('  {}: {}, Modifier: {:+d}'.format(key, value, modifier))
-            self.data['attributes'][key] = value
+            self.data['attributes'][key] = [value, modifier]
 
     # Selects a class form all classes based on input
     @staticmethod

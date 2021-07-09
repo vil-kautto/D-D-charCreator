@@ -14,6 +14,8 @@ class Character:
             self.race_data = json.load(file)
 
         self.data = {
+            "class": self.get_class(random.randint(1, 12)),
+            "race": "null",
             "attributes": {
                 "Strength": 0,
                 "Dexterity": 0,
@@ -24,16 +26,20 @@ class Character:
             },
             "features": [],
             "speed": 0,
-            "size": "nan"
+            "size": "null"
         }
-        char_class = self.get_class(random.randint(1, 12))
+
+        char_class = self.data["class"]
         print('Class: {}'.format(char_class.capitalize()))
-        char_race = self.get_race(random.randint(1, 9))
+        
+        self.data["race"] = self.get_race(random.randint(1, 9))
+        char_race = self.data["race"]
         print('Race: {}'.format(char_race.capitalize()))
-        size = self.race_data[char_race]["size"].capitalize()
-        print('  Size: {!s}'.format(size))
-        speed = self.race_data[char_race]["speed"]
-        print('  Speed: {}ft'.format(speed))
+        
+        self.data['size'] = self.race_data[char_race]["size"].capitalize()
+        print('  Size: {!s}'.format(self.data['size']))
+        self.data['speed'] = self.race_data[char_race]["speed"]
+        print('  Speed: {}ft'.format(self.data['speed']))
 
         print("\nRacial Features:")
         self.data["features"].append(self.race_data[char_race]["features"])

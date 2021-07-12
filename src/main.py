@@ -1,15 +1,22 @@
-import PySimpleGUI as sg
+import PySimpleGUI as gui
 from character import Character
 import json
 
 path = "../saved_characters.json"
 
-char = Character()
+char = None
+recent = []
+saved = []
+try:
+    saved = json.load(open(path, 'r'))
+except FileNotFoundError:
+    print("saved characters not found")
+finally:
+    print("")
 
 
 # Update function
 def update():
-    char = Character()
     char_data = char.get_data()
 
     # Class and race details
@@ -18,75 +25,90 @@ def update():
     window['-size-'].update('  Size: {}'.format(char_data['size']))
     window['-speed-'].update('  Speed: {}ft'.format(char_data['speed']))
 
-    attr = char_data['attributes']
-
     # Attribute details
-    window['-str-'].update('  Strength: {}, mod: {:+}'.format(attr['Strength'][0], attr['Strength'][1]))
-    window['-dex-'].update('  Dexterity: {}, mod: {:+}'.format(attr['Dexterity'][0], attr['Dexterity'][1]))
-    window['-con-'].update('  Constitution: {}, mod: {:+}'.format(attr['Constitution'][0], attr['Constitution'][1]))
-    window['-int-'].update('  Intelligence: {}, mod: {:+}'.format(attr['Intelligence'][0], attr['Intelligence'][1]))
-    window['-wis-'].update('  Wisdom: {}, mod: {:+}'.format(attr['Wisdom'][0], attr['Wisdom'][1]))
-    window['-cha-'].update('  Charisma: {}, mod: {:+}'.format(attr['Charisma'][0], attr['Charisma'][1]))
+    attr = []
+    for key, value in char_data['attributes'].items():
+        attribute = '{}: {}; mod {:+}'.format(key, value[0], value[1])
+        attr.append(attribute)
+
+    window['-attr-'].update(attr)
 
     # class and racial features
     window['-race feat-'].update(char_data['features'][0])
     window['-class feat-'].update(char_data['features'][1])
 
+    # storing character data
+    window['-recent-'].update(recent)
+    window['-saved-'].update(saved)
 
 
+def find(list, item):
+    char = [item for item in list if item['name'] == item]
+    update()
 
-# Define the window's contents i.e. layout
+
+# the character stat layout
 stat_layout = [
-        [sg.Text('Class: ', key='-class-', size=(25, 1), font='Helvetica 11')],
-        [sg.Text('Race: ', key='-race-', size=(25, 1), font='Helvetica 11')],
-        [sg.Text('  Size: ', key='-size-', size=(25, 1), font='Helvetica 11')],
-        [sg.Text('  Speed: ', key='-speed-', size=(25, 1), font='Helvetica 11')],
+    [gui.Text('Class: ', key='-class-', size=(20, 1), font='Helvetica 11')],
+    [gui.Text('Race: ', key='-race-', size=(20, 1), font='Helvetica 11')],
+    [gui.Text('  Size: ', key='-size-', size=(20, 1), font='Helvetica 11')],
+    [gui.Text('  Speed: ', key='-speed-', size=(20, 2), font='Helvetica 11')],
 
-        [sg.Text('Attributes: ', size=(25, 1), font='Helvetica 11')],
-        [sg.Text('  Strength: ', key='-str-', size=(25, 1), font='Helvetica 11')],
-        [sg.Text('  Dexterity: ', key='-dex-', size=(25, 1), font='Helvetica 11')],
-        [sg.Text('  Constitution: ', key='-con-', size=(25, 1), font='Helvetica 11')],
-        [sg.Text('  Intelligence: ', key='-int-', size=(25, 1), font='Helvetica 11')],
-        [sg.Text('  Wisdom: ', key='-wis-', size=(25, 1), font='Helvetica 11')],
-        [sg.Text('  Charisma: ', key='-cha-', size=(25, 1), font='Helvetica 11')],
-        [sg.Button('Save', enable_events=True, font='Helvetica 11'),
-            sg.Button('Roll', enable_events=True, font='Helvetica 11'),
-            sg.Button('Exit', enable_events=True, font='Helvetica 11')
-         ]
-    ]
+    [gui.Text('Attributes: ', size=(20, 1), font='Helvetica 11')],
+    [gui.Listbox(values=[], enable_events=True, size=(25, 6), key="-attr-")],
+    [gui.Button('Save', enable_events=True, font='Helvetica 11'),
+     gui.Button('Roll', enable_events=True, font='Helvetica 11'),
+     gui.Button('Exit', enable_events=True, font='Helvetica 11')
+     ]
+]
 
+# The feature section layout
 feature_layout = [
-    [sg.Text('Racial Features: ', size=(25, 1), font='Helvetica 11')],
-    [sg.Listbox(values=[], enable_events=True, size=(30, 8), key="-race feat-")],
-    [sg.Text('Class Features: ', size=(25, 1), font='Helvetica 11')],
-    [sg.Listbox(values=[], enable_events=True, size=(30, 8), key="-class feat-")],
+    [gui.Text('Racial Features: ', size=(25, 1), font='Helvetica 11')],
+    [gui.Listbox(values=[], enable_events=True, size=(30, 8), key="-race feat-")],
+    [gui.Text('Class Features: ', size=(25, 1), font='Helvetica 11')],
+    [gui.Listbox(values=[], enable_events=True, size=(30, 8), key="-class feat-")],
 ]
 
 
+# The character section layout
+character_layout = [
+    [gui.Text('Recent characters:', size=(20, 1), font='Helvetica 11')],
+    [gui.Listbox(values=[], enable_events=True, size=(25, 7), key="-recent-")],
+    [gui.Text('Saved characters:', size=(20, 1), font='Helvetica 11')],
+    [gui.Listbox(values=[], enable_events=True, size=(25, 7), key="-saved-")],
+]
 
+# The general layout used in the application
 layout = [
     [
-        sg.Column(stat_layout),
-        sg.VSeperator(),
-        sg.Column(feature_layout)
+        gui.Column(character_layout),
+        gui.VSeperator(),
+        gui.Column(stat_layout),
+        gui.VSeperator(),
+        gui.Column(feature_layout),
     ]
 ]
 
 
 # Create the window
-window = sg.Window('CharCreator', layout, size=(700, 400))
+window = gui.Window('CharCreator', layout, size=(700, 400))
+
 
 # Event loop
 while True:
     event, values = window.read()
-    if event in (sg.WIN_CLOSED, 'Exit'):
+    if event in (gui.WIN_CLOSED, 'Exit'):
         break
     if event == 'Roll':
+        char = Character()
+        recent.append(char)
         update()
+    #if event == '-recent-':
+        #find(recent, "null")
     if event == 'Save':
-        with open(path, 'a') as outfile:
-            json.dump(char.get_data(), outfile, indent=4)
-        break
-    if event in ["-race feat-", '-class feat-']:
-        print("click")
+        with open(path, 'w') as outfile:
+            saved.append(char.get_data())
+            json.dump(saved, outfile, indent=4)
+            update()
 window.close()

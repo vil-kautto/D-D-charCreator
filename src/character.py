@@ -16,6 +16,7 @@ class Character:
         self.data = {
             "class": self.get_class(random.randint(1, 12)),
             "type": "null",
+            "name": "null",
             "race": "null",
             "attributes": {
                 "Strength": [],

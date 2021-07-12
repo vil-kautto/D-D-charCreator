@@ -6,6 +6,7 @@ path = "../saved_characters.json"
 
 char = Character()
 
+
 # Update function
 def update():
     char = Character()
@@ -27,9 +28,15 @@ def update():
     window['-wis-'].update('  Wisdom: {}, mod: {:+}'.format(attr['Wisdom'][0], attr['Wisdom'][1]))
     window['-cha-'].update('  Charisma: {}, mod: {:+}'.format(attr['Charisma'][0], attr['Charisma'][1]))
 
+    # class and racial features
+    window['-race feat-'].update(char_data['features'][0])
+    window['-class feat-'].update(char_data['features'][1])
+
+
+
 
 # Define the window's contents i.e. layout
-layout = [
+stat_layout = [
         [sg.Text('Class: ', key='-class-', size=(25, 1), font='Helvetica 11')],
         [sg.Text('Race: ', key='-race-', size=(25, 1), font='Helvetica 11')],
         [sg.Text('  Size: ', key='-size-', size=(25, 1), font='Helvetica 11')],
@@ -42,18 +49,36 @@ layout = [
         [sg.Text('  Intelligence: ', key='-int-', size=(25, 1), font='Helvetica 11')],
         [sg.Text('  Wisdom: ', key='-wis-', size=(25, 1), font='Helvetica 11')],
         [sg.Text('  Charisma: ', key='-cha-', size=(25, 1), font='Helvetica 11')],
-        [[sg.Button('Save', enable_events=True, font='Helvetica 11')],
-            [sg.Button('Roll', enable_events=True, font='Helvetica 11')],
-            [sg.Button('Exit', enable_events=True, font='Helvetica 11')]]
+        [sg.Button('Save', enable_events=True, font='Helvetica 11'),
+            sg.Button('Roll', enable_events=True, font='Helvetica 11'),
+            sg.Button('Exit', enable_events=True, font='Helvetica 11')
+         ]
     ]
 
+feature_layout = [
+    [sg.Text('Racial Features: ', size=(25, 1), font='Helvetica 11')],
+    [sg.Listbox(values=[], enable_events=True, size=(30, 8), key="-race feat-")],
+    [sg.Text('Class Features: ', size=(25, 1), font='Helvetica 11')],
+    [sg.Listbox(values=[], enable_events=True, size=(30, 8), key="-class feat-")],
+]
+
+
+
+layout = [
+    [
+        sg.Column(stat_layout),
+        sg.VSeperator(),
+        sg.Column(feature_layout)
+    ]
+]
+
+
 # Create the window
-window = sg.Window('CharCreator', layout, size=(350, 400))
+window = sg.Window('CharCreator', layout, size=(700, 400))
 
 # Event loop
 while True:
     event, values = window.read()
-    update()
     if event in (sg.WIN_CLOSED, 'Exit'):
         break
     if event == 'Roll':
@@ -62,4 +87,6 @@ while True:
         with open(path, 'a') as outfile:
             json.dump(char.get_data(), outfile, indent=4)
         break
+    if event in ["-race feat-", '-class feat-']:
+        print("click")
 window.close()
